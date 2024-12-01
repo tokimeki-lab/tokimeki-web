@@ -1,0 +1,22 @@
+{
+  "common": {
+    "title": "쵸 도키메 키켄큐브",
+    "desc": "「초 도키메키 센덴부」에 관한 데이터베이스와 연구실"
+  },
+  "home": {
+    "subtitle": "키켄하고 싶은 것을 연구합니다",
+    "dbtitle": "쵸 도키메♡ 데이터베이스",
+    "dbdesc": "「초 도키메키 센덴부」에 관한 데이터를 모아놓았습니다",
+    "songs": "곡",
+    "records": "레코드",
+    "artists": "아티스트",
+    "youtube": "YouTube",
+    "costumes": "의상",
+    "events": "이벤트",
+    "articles": "기사",
+    "labtitle": "쵸 도키메♡ 연구부실",
+    "labdesc": "「초 도키메키 센덴부」에 관한 편리한 도구나 기사 등",
+    "posts": "부지",
+    "photos": "사진관"
+  }
+}

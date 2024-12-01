@@ -1,6 +1,6 @@
 'use client'
 
-import { Locale, locales } from '@/i18n/config'
+import { Locale, localeLabels, locales } from '@/i18n/config'
 import { setUserLocale } from '@/i18n/locale'
 import { useLocale } from 'next-intl'
 import { ChangeEvent, useTransition } from 'react'
@@ -16,10 +16,13 @@ export default function LocaleSwitcher() {
     })
   }
   return (
-    <select className="p-2" defaultValue={locale} onChange={onChange}>
-      {locales.map((l) => (
+    <select
+      className="px-2 py-1 text-xs text-white text-right bg-secondary rounded-full focus:outline-none appearance-none"
+      defaultValue={locale}
+      onChange={onChange}>
+      {locales.map((l, i) => (
         <option key={l} value={l} className="bg-none">
-          {l}
+          {localeLabels[i].emoji} {localeLabels[i].label}
         </option>
       ))}
     </select>

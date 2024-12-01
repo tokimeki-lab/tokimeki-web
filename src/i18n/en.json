@@ -1,5 +1,22 @@
 {
   "common": {
-    "title": "Cho Tokimeki♡Lab"
+    "title": "Cho Tokimeki♡Lab",
+    "desc": "Researching something about Tokimeki♡"
+  },
+  "home": {
+    "subtitle": "Researching something about Tokimeki♡",
+    "dbtitle": "Cho Tokimeki♡Database",
+    "dbdesc": "A database of Cho Tokimeki♡Sendenbu",
+    "songs": "Songs",
+    "records": "Records",
+    "artists": "Artists",
+    "youtube": "YouTube",
+    "costumes": "Costumes",
+    "events": "Events",
+    "articles": "Articles",
+    "labtitle": "Cho Tokimeki♡Lab",
+    "labdesc": "Tools and articles related to Cho Tokimeki♡Sendenbu",
+    "posts": "Posts",
+    "photos": "Photos"
   }
 }

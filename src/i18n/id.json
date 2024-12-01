@@ -1,5 +1,22 @@
 {
   "common": {
-    "title": "Cho Tokimeki♡Lab"
+    "title": "Cho Tokimeki♡Lab",
+    "desc": "Meneliti sesuatu tentang Tokimeki♡"
+  },
+  "home": {
+    "subtitle": "Saya akan meneliti sesuatu yang menarik",
+    "dbtitle": "Cho Tokimeki♡Database",
+    "dbdesc": "Sebuah database Cho Tokimeki♡Sendenbu",
+    "songs": "Lagu",
+    "records": "Rekaman",
+    "artists": "Artis",
+    "youtube": "YouTube",
+    "costumes": "Kostum",
+    "events": "Acara",
+    "articles": "Artikel",
+    "labtitle": "Cho Tokimeki♡Lab",
+    "labdesc": "Alat dan artikel terkait Cho Tokimeki♡Sendenbu",
+    "posts": "Pos",
+    "photos": "Foto"
   }
 }

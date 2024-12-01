@@ -1,0 +1,22 @@
+{
+  "common": {
+    "title": "超心动♡研究部",
+    "desc": "研究一些关于超心动♡的东西"
+  },
+  "home": {
+    "subtitle": "研究一些关于超心动♡的东西",
+    "dbtitle": "超心动♡数据库",
+    "dbdesc": "超心动♡俱乐部的数据库",
+    "songs": "歌曲",
+    "records": "记录",
+    "artists": "艺术家",
+    "youtube": "YouTube",
+    "costumes": "服装",
+    "events": "活动",
+    "articles": "文章",
+    "labtitle": "超心动♡实验室",
+    "labdesc": "与超心动♡俱乐部相关的工具和文章",
+    "posts": "帖子",
+    "photos": "照片"
+  }
+}

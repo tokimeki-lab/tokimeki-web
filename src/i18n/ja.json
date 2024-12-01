@@ -1,5 +1,56 @@
 {
   "common": {
-    "title": "超ときめき♡研究部"
+    "title": "超ときめき♡研究部",
+    "desc": "ときめく何かを研究する超ときめき♡研究部（非公式）のページ"
+  },
+  "home": {
+    "subtitle": "ときめく何かを研究していきます",
+    "dbtitle": "超ときめき♡データベース",
+    "dbdesc": "「超ときめき♡宣伝部」に関するデータをまとめています",
+    "songs": "楽曲",
+    "records": "レコード",
+    "artists": "アーティスト",
+    "youtube": "YouTube",
+    "costumes": "衣装",
+    "events": "イベント",
+    "articles": "記事",
+    "labtitle": "超ときめき♡研究部室",
+    "labdesc": "「超ときめき♡宣伝部」に関する便利ツールや記事など",
+    "posts": "部誌",
+    "photos": "写真館"
+  },
+  "songs": {
+    "title": "超ときめき♡楽曲データベース",
+    "desc": "「超ときめき♡宣伝部」の楽曲データ",
+    "heading": "楽曲データ",
+    "vocal": "歌唱",
+    "lyrics": "作詞",
+    "music": "作曲",
+    "arrangement": "編曲",
+    "produce": "制作",
+    "dance": "ダンス"
+  },
+  "records": {
+    "title": "超ときめき♡レコードデータベース",
+    "desc": "「超ときめき♡宣伝部」のレコードのデータ",
+    "heading": "レコードデータ"
+  },
+  "artists": {
+    "title": "超ときめき♡アーティストデータベース",
+    "desc": "「超ときめき♡宣伝部」のアーティストデータ",
+    "heading": "アーティストデータ"
+  },
+  "youtube": {
+    "title": "超ときめき♡YouTubeデータベース",
+    "desc": "「超ときめき♡宣伝部」のYouTubeのデータ",
+    "heading": "YouTubeデータ"
+  },
+  "costumes": {
+    "title": "超ときめき♡衣装データベース",
+    "desc": "「超ときめき♡宣伝部」の衣装のデータ",
+    "heading": "衣装データ",
+    "chotokisencostume": "超ときめき♡宣伝部の衣装",
+    "tokisencostume": "ときめき♡宣伝部の衣装",
+    "birthdaycostume": "生誕祭衣装"
   }
 }
