@@ -1,24 +1,21 @@
 'use client'
 
-import { Locale, localeLabels, locales } from '@/i18n/config'
-import { setUserLocale } from '@/i18n/locale'
-import { useLocale } from 'next-intl'
-import { ChangeEvent, useTransition } from 'react'
+import { currentLocale, Locale, localeLabels, locales } from '@/i18n/config'
+import { ChangeEvent } from 'react'
 
 export default function LocaleSwitcher() {
-  const locale = useLocale()
-  const [, startTransition] = useTransition()
-
   const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const locale = e.target.value as Locale
-    startTransition(() => {
-      setUserLocale(locale)
-    })
+    const { value } = e.target
+    if (locales.includes(value as Locale) && value !== currentLocale) {
+      const path = window.location.pathname
+      const targetUrl = value === 'ja' ? `https://tokiken.com${path}` : `https://${value}.tokiken.com${path}`
+      window.location.href = targetUrl
+    }
   }
   return (
     <select
       className="px-2 py-1 text-xs text-white text-right bg-secondary rounded-full focus:outline-none appearance-none"
-      defaultValue={locale}
+      defaultValue={currentLocale}
       onChange={onChange}>
       {locales.map((l, i) => (
         <option key={l} value={l} className="bg-none">

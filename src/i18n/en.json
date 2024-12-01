@@ -18,5 +18,10 @@
     "labdesc": "Tools and articles related to Cho Tokimeki♡Sendenbu",
     "posts": "Posts",
     "photos": "Photos"
+  },
+  "posts": {
+    "title": "Cho Tokimeki♡Lab Posts",
+    "desc": "Notes about Cho Tokimeki♡Lab",
+    "heading": "Posts"
   }
 }

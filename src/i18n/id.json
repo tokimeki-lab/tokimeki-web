@@ -18,5 +18,10 @@
     "labdesc": "Alat dan artikel terkait Cho Tokimeki♡Sendenbu",
     "posts": "Pos",
     "photos": "Foto"
+  },
+  "posts": {
+    "title": "Pos Cho Tokimeki♡Lab",
+    "desc": "Catatan tentang Cho Tokimeki♡Lab",
+    "heading": "Pos"
   }
 }

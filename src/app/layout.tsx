@@ -1,16 +1,17 @@
 import Footer from '@/components/common/Footer'
 import Header from '@/components/common/Header'
-import { NextIntlClientProvider } from 'next-intl'
-import { getLocale, getMessages, getTranslations } from 'next-intl/server'
+import { currentBaseUrl, currentLocale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
 import { ReactNode } from 'react'
 import './globals.css'
 
 export async function generateMetadata() {
-  const locale = await getLocale()
-  const t = await getTranslations('common')
+  const { common } = await getDictionary()
+  const { title, desc } = common
+
   return {
-    title: t('title'),
-    description: t('desc'),
+    title,
+    description: desc,
     robots: {
       index: true,
       follow: true,
@@ -23,43 +24,39 @@ export async function generateMetadata() {
       icon: '/favicon.ico',
       apple: './300x300.png',
     },
-    metadataBase: new URL('https://tokiken.com'),
+    metadataBase: currentBaseUrl,
     openGraph: {
-      title: t('title'),
-      description: t('desc'),
-      siteName: t('title'),
-      locale: locale,
+      title,
+      description: desc,
+      siteName: title,
+      locale: currentLocale,
       type: 'website',
       images: [
         {
-          url: 'https://tokiken.com/300x300.png',
+          url: `${currentBaseUrl}/300x300.png`,
           width: 300,
           height: 300,
         },
       ],
     },
     twitter: {
-      title: t('title'),
-      description: t('desc'),
+      title,
+      description: desc,
       creator: '@kusabure',
-      images: ['https://tokiken.com/300x300.png'],
+      images: [`${currentBaseUrl}/300x300.png`],
       card: 'summary',
     },
   }
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const lang = await getLocale()
-  const messages = await getMessages()
   return (
-    <html lang={lang}>
-      <NextIntlClientProvider messages={messages}>
-        <body>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </body>
-      </NextIntlClientProvider>
+    <html lang={currentLocale}>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

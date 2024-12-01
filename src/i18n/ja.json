@@ -52,5 +52,10 @@
     "chotokisencostume": "超ときめき♡宣伝部の衣装",
     "tokisencostume": "ときめき♡宣伝部の衣装",
     "birthdaycostume": "生誕祭衣装"
+  },
+  "posts": {
+    "title": "超ときめき♡研究部誌",
+    "desc": "超ときめき♡研究部に関するメモなど",
+    "heading": "部誌"
   }
 }
