@@ -19,6 +19,14 @@
     "posts": "Posts",
     "photos": "Photos"
   },
+  "articles": {
+    "title": "Cho Tokimeki♡Articles Database",
+    "desc": "Articles about Cho Tokimeki♡Sendenbu",
+    "heading": "Articles",
+    "noarticles": "No articles found",
+    "f_subtitle": "Articles in %s/%s",
+    "f_link_for_events": "Events in %s/%s"
+  },
   "posts": {
     "title": "Cho Tokimeki♡Lab Posts",
     "desc": "Notes about Cho Tokimeki♡Lab",

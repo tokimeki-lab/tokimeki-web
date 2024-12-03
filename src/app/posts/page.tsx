@@ -50,15 +50,13 @@ const Posts = async () => {
   )
 }
 
-const listPosts = unstable_cache(
-  async () =>
-    prisma.posts.findMany({
-      include: { post_categories: true },
-      skip: 0,
-      take: 10,
-      orderBy: { created_at: 'desc' },
-    }),
-  ['posts']
+const listPosts = unstable_cache(async () =>
+  prisma.posts.findMany({
+    include: { post_categories: true },
+    skip: 0,
+    take: 10,
+    orderBy: { created_at: 'desc' },
+  })
 )
 
 export default Posts

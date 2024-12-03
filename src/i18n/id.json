@@ -19,6 +19,14 @@
     "posts": "Pos",
     "photos": "Foto"
   },
+  "articles": {
+    "title": "Database Artikel Cho Tokimeki♡",
+    "desc": "Artikel tentang Cho Tokimeki♡Sendenbu",
+    "heading": "Artikel",
+    "noarticles": "Tidak ada artikel yang ditemukan",
+    "f_subtitle": "Artikel %s/%s",
+    "f_link_for_events": "Acara di %s/%s"
+  },
   "posts": {
     "title": "Pos Cho Tokimeki♡Lab",
     "desc": "Catatan tentang Cho Tokimeki♡Lab",

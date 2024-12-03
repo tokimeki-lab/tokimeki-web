@@ -19,6 +19,14 @@
     "posts": "帖子",
     "photos": "照片"
   },
+  "articles": {
+    "title": "超心动♡文章数据库",
+    "desc": "关于超心动♡俱乐部的文章",
+    "heading": "文章",
+    "noarticles": "未找到文章",
+    "f_subtitle": "%s年%s月的文章",
+    "f_link_for_events": "%s年%s月的活动"
+  },
   "posts": {
     "title": "超心动♡实验室帖子",
     "desc": "关于超心动♡实验室的笔记",

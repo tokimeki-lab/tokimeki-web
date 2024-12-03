@@ -21,7 +21,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
   if (isNaN(id) || id < 1) {
     return null
   }
-  const post = await getPost(id)()
+  const post = await getPost(id)
   if (!post) {
     return null
   } else {
@@ -49,7 +49,7 @@ const Post = async ({ params }: Props) => {
   if (isNaN(id) || id < 1) {
     notFound()
   }
-  const post = await getPost(id)()
+  const post = await getPost(id)
   if (!post) {
     notFound()
   }
@@ -69,14 +69,11 @@ const Post = async ({ params }: Props) => {
   )
 }
 
-const getPost = (id: number) =>
-  unstable_cache(
-    async () =>
-      prisma.posts.findUnique({
-        include: { post_categories: true },
-        where: { id },
-      }),
-    [`post-${id}`]
-  )
+const getPost = unstable_cache(async (id: number) =>
+  prisma.posts.findUnique({
+    include: { post_categories: true },
+    where: { id },
+  })
+)
 
 export default Post
