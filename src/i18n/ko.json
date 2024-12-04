@@ -31,5 +31,18 @@
     "title": "쵸 도키메♡ 연구부지",
     "desc": "쵸 도키메♡ 연구부에 관한 메모 등",
     "heading": "부지"
+  },
+  "records": {
+    "title": "쵸 도키메♡ 레코드 데이터베이스",
+    "desc": "「초 도키메키 센덴부」의 레코드 데이터",
+    "heading": "레코드 데이터"
+  },
+  "youtube": {
+    "title": "쵸 도키메♡ YouTube 데이터베이스",
+    "desc": "「초 도키메키 센덴부」의 YouTube 데이터",
+    "heading": "YouTube 데이터",
+    "channel": "채널",
+    "genre": "장르",
+    "f_video_list": "%s의 동영상 목록"
   }
 }

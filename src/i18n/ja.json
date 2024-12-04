@@ -51,7 +51,10 @@
   "youtube": {
     "title": "超ときめき♡YouTubeデータベース",
     "desc": "「超ときめき♡宣伝部」のYouTubeのデータ",
-    "heading": "YouTubeデータ"
+    "heading": "YouTubeデータ",
+    "channel": "チャンネル",
+    "genre": "ジャンル",
+    "f_video_list": "「%s」の動画一覧"
   },
   "costumes": {
     "title": "超ときめき♡衣装データベース",

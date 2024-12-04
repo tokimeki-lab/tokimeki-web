@@ -8,28 +8,41 @@
     "dbtitle": "超心动♡数据库",
     "dbdesc": "超心动♡俱乐部的数据库",
     "songs": "歌曲",
-    "records": "记录",
-    "artists": "艺术家",
+    "records": "唱片",
+    "artists": "创作者",
     "youtube": "YouTube",
-    "costumes": "服装",
+    "costumes": "打歌服",
     "events": "活动",
-    "articles": "文章",
+    "articles": "报道",
     "labtitle": "超心动♡实验室",
-    "labdesc": "与超心动♡俱乐部相关的工具和文章",
+    "labdesc": "与超心动♡俱乐部相关的应用和报道",
     "posts": "帖子",
     "photos": "照片"
   },
   "articles": {
     "title": "超心动♡文章数据库",
-    "desc": "关于超心动♡俱乐部的文章",
-    "heading": "文章",
-    "noarticles": "未找到文章",
-    "f_subtitle": "%s年%s月的文章",
+    "desc": "关于超心动♡俱乐部的报导",
+    "heading": "报导",
+    "noarticles": "未找到相关报导",
+    "f_subtitle": "%s年%s月的新闻",
     "f_link_for_events": "%s年%s月的活动"
   },
   "posts": {
     "title": "超心动♡实验室帖子",
     "desc": "关于超心动♡实验室的笔记",
     "heading": "帖子"
+  },
+  "records": {
+    "title": "超心动♡唱片数据库",
+    "desc": "超心动♡俱乐部的唱片资料",
+    "heading": "唱片"
+  },
+  "youtube": {
+    "title": "超心动♡YouTube数据库",
+    "desc": "超心动♡俱乐部的YouTube资料",
+    "heading": "YouTube",
+    "channel": "频道",
+    "genre": "类型",
+    "f_video_list": "%s的视频"
   }
 }

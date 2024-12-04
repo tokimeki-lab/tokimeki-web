@@ -31,5 +31,18 @@
     "title": "Pos Cho Tokimeki♡Lab",
     "desc": "Catatan tentang Cho Tokimeki♡Lab",
     "heading": "Pos"
+  },
+  "records": {
+    "title": "Database Rekaman Cho Tokimeki♡",
+    "desc": "Data rekaman Cho Tokimeki♡Sendenbu",
+    "heading": "Rekaman"
+  },
+  "youtube": {
+    "title": "Database YouTube Cho Tokimeki♡",
+    "desc": "Data YouTube Cho Tokimeki♡Sendenbu",
+    "heading": "YouTube",
+    "channel": "Channel",
+    "genre": "Genre",
+    "f_video_list": "Video %s"
   }
 }

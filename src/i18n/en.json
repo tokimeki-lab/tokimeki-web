@@ -31,5 +31,18 @@
     "title": "Cho Tokimeki♡Lab Posts",
     "desc": "Notes about Cho Tokimeki♡Lab",
     "heading": "Posts"
+  },
+  "records": {
+    "title": "Cho Tokimeki♡Records Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu records",
+    "heading": "Records"
+  },
+  "youtube": {
+    "title": "Cho Tokimeki♡YouTube Database",
+    "desc": "YouTube data of Cho Tokimeki♡Sendenbu",
+    "heading": "YouTube",
+    "channel": "Channel",
+    "genre": "Genre",
+    "f_video_list": "Videos of %s"
   }
 }
