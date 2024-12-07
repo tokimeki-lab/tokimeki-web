@@ -37,6 +37,17 @@
     "desc": "Data rekaman Cho Tokimeki♡Sendenbu",
     "heading": "Rekaman"
   },
+  "songs": {
+    "title": "Database Lagu Cho Tokimeki♡",
+    "desc": "Data lagu Cho Tokimeki♡Sendenbu",
+    "heading": "Lagu",
+    "vocal": "Vokal",
+    "lyrics": "Lirik",
+    "music": "Musik",
+    "arrangement": "Arransemen",
+    "produce": "Produksi",
+    "dance": "Tarian"
+  },
   "youtube": {
     "title": "Database YouTube Cho Tokimeki♡",
     "desc": "Data YouTube Cho Tokimeki♡Sendenbu",
