@@ -1,7 +1,17 @@
 {
   "common": {
     "title": "Cho Tokimeki♡Lab",
-    "desc": "Researching something about Tokimeki♡"
+    "desc": "Researching something about Tokimeki♡",
+    "kanami": "Kanami",
+    "julia": "Julia",
+    "hitoka": "Hitoka",
+    "haruka": "Haruka",
+    "aki": "Aki",
+    "hiyori": "Hiyori",
+    "mako": "Mako",
+    "sara": "Sara",
+    "bambi": "Bambi",
+    "kumicho": "Kumicho"
   },
   "home": {
     "subtitle": "Researching something about Tokimeki♡",
@@ -19,6 +29,46 @@
     "posts": "Posts",
     "photos": "Photos"
   },
+  "songs": {
+    "title": "Cho Tokimeki♡Songs Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu songs",
+    "heading": "Songs",
+    "vocal": "Vocal",
+    "lyrics": "Lyrics",
+    "music": "Music",
+    "arrangement": "Arrangement",
+    "produce": "Produce",
+    "dance": "Dance"
+  },
+  "records": {
+    "title": "Cho Tokimeki♡Records Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu records",
+    "heading": "Records"
+  },
+  "youtube": {
+    "title": "Cho Tokimeki♡YouTube Database",
+    "desc": "YouTube data of Cho Tokimeki♡Sendenbu",
+    "heading": "YouTube",
+    "channel": "Channel",
+    "genre": "Genre",
+    "f_video_list": "Videos of %s"
+  },
+  "events": {
+    "title": "Cho Tokimeki♡Event Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu events",
+    "heading": "Events",
+    "show_blog_title": "Show blog title",
+    "f_calendar_title": "%d/%d Calendar",
+    "f_link_for_articles": "Articles in %d/%d",
+    "f_tweet_label": "@%s's Tweet",
+    "f_calendar_label": "open the calendar for %d/%d",
+    "f_days_left": "%d days left",
+    "broadcast": "Broadcast",
+    "live": "Live",
+    "event": "Event",
+    "milestone": "Milestone",
+    "others": "Others"
+  },
   "articles": {
     "title": "Cho Tokimeki♡Articles Database",
     "desc": "Articles about Cho Tokimeki♡Sendenbu",
@@ -31,29 +81,5 @@
     "title": "Cho Tokimeki♡Lab Posts",
     "desc": "Notes about Cho Tokimeki♡Lab",
     "heading": "Posts"
-  },
-  "records": {
-    "title": "Cho Tokimeki♡Records Database",
-    "desc": "Data of Cho Tokimeki♡Sendenbu records",
-    "heading": "Records"
-  },
-  "songs": {
-    "title": "Cho Tokimeki♡Songs Database",
-    "desc": "Data of Cho Tokimeki♡Sendenbu songs",
-    "heading": "Songs",
-    "vocal": "Vocal",
-    "lyrics": "Lyrics",
-    "music": "Music",
-    "arrangement": "Arrangement",
-    "produce": "Produce",
-    "dance": "Dance"
-  },
-  "youtube": {
-    "title": "Cho Tokimeki♡YouTube Database",
-    "desc": "YouTube data of Cho Tokimeki♡Sendenbu",
-    "heading": "YouTube",
-    "channel": "Channel",
-    "genre": "Genre",
-    "f_video_list": "Videos of %s"
   }
 }

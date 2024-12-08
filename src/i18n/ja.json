@@ -1,7 +1,17 @@
 {
   "common": {
     "title": "超ときめき♡研究部",
-    "desc": "ときめく何かを研究する超ときめき♡研究部（非公式）のページ"
+    "desc": "ときめく何かを研究する超ときめき♡研究部（非公式）のページ",
+    "kanami": "かなみ",
+    "julia": "ジュリア",
+    "hitoka": "ひとか",
+    "haruka": "はるか",
+    "aki": "あき",
+    "hiyori": "ひより",
+    "mako": "まこ",
+    "sara": "サラ",
+    "bambi": "ばんび",
+    "kumicho": "組長"
   },
   "home": {
     "subtitle": "ときめく何かを研究していきます",
@@ -19,25 +29,6 @@
     "posts": "部誌",
     "photos": "写真館"
   },
-  "articles": {
-    "title": "超ときめき♡記事データベース",
-    "desc": "超ときめき♡宣伝部に関する記事",
-    "heading": "記事データ",
-    "noarticles": "登録されている記事がみつかりませんでした",
-    "f_subtitle": "%d年%d月の記事",
-    "f_link_for_events": "%d年%d月のイベント一覧ページ"
-  },
-
-  "records": {
-    "title": "超ときめき♡レコードデータベース",
-    "desc": "「超ときめき♡宣伝部」のレコードのデータ",
-    "heading": "レコードデータ"
-  },
-  "artists": {
-    "title": "超ときめき♡アーティストデータベース",
-    "desc": "「超ときめき♡宣伝部」のアーティストデータ",
-    "heading": "アーティストデータ"
-  },
   "songs": {
     "title": "超ときめき♡楽曲データベース",
     "desc": "「超ときめき♡宣伝部」の楽曲データ",
@@ -48,6 +39,16 @@
     "arrangement": "編曲",
     "produce": "制作",
     "dance": "ダンス"
+  },
+  "records": {
+    "title": "超ときめき♡レコードデータベース",
+    "desc": "「超ときめき♡宣伝部」のレコードのデータ",
+    "heading": "レコードデータ"
+  },
+  "artists": {
+    "title": "超ときめき♡アーティストデータベース",
+    "desc": "「超ときめき♡宣伝部」のアーティストデータ",
+    "heading": "アーティストデータ"
   },
   "youtube": {
     "title": "超ときめき♡YouTubeデータベース",
@@ -64,6 +65,30 @@
     "chotokisencostume": "超ときめき♡宣伝部の衣装",
     "tokisencostume": "ときめき♡宣伝部の衣装",
     "birthdaycostume": "生誕祭衣装"
+  },
+  "events": {
+    "title": "超ときめき♡イベントデータベース",
+    "desc": "「超ときめき♡宣伝部」のイベントデータ",
+    "heading": "イベントデータ",
+    "show_blog_title": "ブログタイトルを表示",
+    "f_calendar_title": "`%d年%d月のカレンダー`",
+    "f_link_for_articles": "%d年%d月の記事一覧",
+    "f_tweet_label": "@%s のツイート",
+    "f_calendar_label": "%d年%dのカレンダーを開く",
+    "f_days_left": "%s日後",
+    "broadcast": "配信",
+    "live": "ライブ",
+    "event": "イベント",
+    "milestone": "マイルストン",
+    "others": "その他"
+  },
+  "articles": {
+    "title": "超ときめき♡記事データベース",
+    "desc": "超ときめき♡宣伝部に関する記事",
+    "heading": "記事データ",
+    "noarticles": "登録されている記事がみつかりませんでした",
+    "f_subtitle": "%d年%d月の記事",
+    "f_link_for_events": "%d年%d月のイベント一覧"
   },
   "posts": {
     "title": "超ときめき♡研究部誌",

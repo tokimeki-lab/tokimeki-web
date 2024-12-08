@@ -438,6 +438,7 @@ model youtube_video_songs {
 model youtube_videos {
   id                     String                   @id @db.VarChar(255)
   published_at           String                   @db.VarChar(255)
+  published_timestamp    Int?
   channel_id             String                   @db.VarChar(255)
   title                  String                   @db.VarChar(255)
   type_id                Int

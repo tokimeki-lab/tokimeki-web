@@ -2,6 +2,7 @@ import Footer from '@/components/common/Footer'
 import Header from '@/components/common/Header'
 import { currentBaseUrl, currentLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { DictionaryProvider } from '@/i18n/hook'
 import { ReactNode } from 'react'
 import './globals.css'
 
@@ -50,12 +51,15 @@ export async function generateMetadata() {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  const dictionary = await getDictionary(currentLocale)
   return (
     <html lang={currentLocale}>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <DictionaryProvider dictionary={dictionary}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </DictionaryProvider>
       </body>
     </html>
   )

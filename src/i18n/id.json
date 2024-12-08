@@ -1,7 +1,17 @@
 {
   "common": {
     "title": "Cho Tokimeki♡Lab",
-    "desc": "Meneliti sesuatu tentang Tokimeki♡"
+    "desc": "Meneliti sesuatu tentang Tokimeki♡",
+    "kanami": "Kanami",
+    "julia": "Julia",
+    "hitoka": "Hitoka",
+    "haruka": "Haruka",
+    "aki": "Aki",
+    "hiyori": "Hiyori",
+    "mako": "Mako",
+    "sara": "Sara",
+    "bambi": "Bambi",
+    "kumicho": "Kumicho"
   },
   "home": {
     "subtitle": "Saya akan meneliti sesuatu yang menarik",
@@ -19,6 +29,46 @@
     "posts": "Pos",
     "photos": "Foto"
   },
+  "songs": {
+    "title": "Database Lagu Cho Tokimeki♡",
+    "desc": "Data lagu Cho Tokimeki♡Sendenbu",
+    "heading": "Lagu",
+    "vocal": "Vokal",
+    "lyrics": "Lirik",
+    "music": "Musik",
+    "arrangement": "Arransemen",
+    "produce": "Produksi",
+    "dance": "Tarian"
+  },
+  "records": {
+    "title": "Database Rekaman Cho Tokimeki♡",
+    "desc": "Data rekaman Cho Tokimeki♡Sendenbu",
+    "heading": "Rekaman"
+  },
+  "youtube": {
+    "title": "Database YouTube Cho Tokimeki♡",
+    "desc": "Data YouTube Cho Tokimeki♡Sendenbu",
+    "heading": "YouTube",
+    "channel": "Channel",
+    "genre": "Genre",
+    "f_video_list": "Video %s"
+  },
+  "events": {
+    "title": "Database Acara Cho Tokimeki♡",
+    "desc": "Data acara Cho Tokimeki♡Sendenbu",
+    "heading": "Acara",
+    "show_blog_title": "Tampilkan judul blog",
+    "f_calendar_title": "Kalender %d/%d",
+    "f_link_for_articles": "Artikel di %d/%d",
+    "f_tweet_label": "Tweet @%s",
+    "f_calendar_label": "Buka kalender %d/%d",
+    "f_days_left": "%d hari lagi",
+    "broadcast": "Siaran",
+    "live": "Langsung",
+    "event": "Acara",
+    "milestone": "Tonggak Sejarah",
+    "others": "Lainnya"
+  },
   "articles": {
     "title": "Database Artikel Cho Tokimeki♡",
     "desc": "Artikel tentang Cho Tokimeki♡Sendenbu",
@@ -31,29 +81,5 @@
     "title": "Pos Cho Tokimeki♡Lab",
     "desc": "Catatan tentang Cho Tokimeki♡Lab",
     "heading": "Pos"
-  },
-  "records": {
-    "title": "Database Rekaman Cho Tokimeki♡",
-    "desc": "Data rekaman Cho Tokimeki♡Sendenbu",
-    "heading": "Rekaman"
-  },
-  "songs": {
-    "title": "Database Lagu Cho Tokimeki♡",
-    "desc": "Data lagu Cho Tokimeki♡Sendenbu",
-    "heading": "Lagu",
-    "vocal": "Vokal",
-    "lyrics": "Lirik",
-    "music": "Musik",
-    "arrangement": "Arransemen",
-    "produce": "Produksi",
-    "dance": "Tarian"
-  },
-  "youtube": {
-    "title": "Database YouTube Cho Tokimeki♡",
-    "desc": "Data YouTube Cho Tokimeki♡Sendenbu",
-    "heading": "YouTube",
-    "channel": "Channel",
-    "genre": "Genre",
-    "f_video_list": "Video %s"
   }
 }

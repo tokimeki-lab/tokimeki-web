@@ -1,7 +1,17 @@
 {
   "common": {
     "title": "超心动♡研究部",
-    "desc": "研究一些关于超心动♡的东西"
+    "desc": "研究一些关于超心动♡的东西",
+    "kanami": "Kanami",
+    "julia": "Julia",
+    "hitoka": "Hitoka",
+    "haruka": "Haruka",
+    "aki": "Aki",
+    "hiyori": "Hiyori",
+    "mako": "Mako",
+    "sara": "Sara",
+    "bambi": "Bambi",
+    "kumicho": "Kumicho"
   },
   "home": {
     "subtitle": "研究一些关于超心动♡的东西",
@@ -19,6 +29,46 @@
     "posts": "帖子",
     "photos": "照片"
   },
+  "songs": {
+    "title": "超心动♡歌曲数据库",
+    "desc": "超心动♡俱乐部的歌曲资料",
+    "heading": "歌曲",
+    "vocal": "主唱",
+    "lyrics": "歌词",
+    "music": "音乐",
+    "arrangement": "编曲",
+    "produce": "制作",
+    "dance": "舞蹈"
+  },
+  "records": {
+    "title": "超心动♡唱片数据库",
+    "desc": "超心动♡俱乐部的唱片资料",
+    "heading": "唱片"
+  },
+  "youtube": {
+    "title": "超心动♡YouTube数据库",
+    "desc": "超心动♡俱乐部的YouTube资料",
+    "heading": "YouTube",
+    "channel": "频道",
+    "genre": "类型",
+    "f_video_list": "%s的视频"
+  },
+  "events": {
+    "title": "超心动♡活动数据库",
+    "desc": "超心动♡俱乐部的活动资料",
+    "heading": "活动",
+    "show_blog_title": "显示博客标题",
+    "f_calendar_title": "%d/%d的日历",
+    "f_link_for_articles": "%d/%d的报道",
+    "f_tweet_label": "@%s 的推文",
+    "f_calendar_label": "打开%d年%d的日历",
+    "f_days_left": "剩余%d天",
+    "broadcast": "直播",
+    "live": "现场",
+    "event": "活动",
+    "milestone": "里程碑",
+    "others": "其他"
+  },
   "articles": {
     "title": "超心动♡文章数据库",
     "desc": "关于超心动♡俱乐部的报导",
@@ -31,29 +81,5 @@
     "title": "超心动♡实验室帖子",
     "desc": "关于超心动♡实验室的笔记",
     "heading": "帖子"
-  },
-  "records": {
-    "title": "超心动♡唱片数据库",
-    "desc": "超心动♡俱乐部的唱片资料",
-    "heading": "唱片"
-  },
-  "songs": {
-    "title": "超心动♡歌曲数据库",
-    "desc": "超心动♡俱乐部的歌曲资料",
-    "heading": "歌曲",
-    "vocal": "主唱",
-    "lyrics": "歌词",
-    "music": "音乐",
-    "arrangement": "编曲",
-    "produce": "制作",
-    "dance": "舞蹈"
-  },
-  "youtube": {
-    "title": "超心动♡YouTube数据库",
-    "desc": "超心动♡俱乐部的YouTube资料",
-    "heading": "YouTube",
-    "channel": "频道",
-    "genre": "类型",
-    "f_video_list": "%s的视频"
   }
 }
