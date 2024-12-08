@@ -37,8 +37,21 @@
     "lyrics": "가사",
     "music": "음악",
     "arrangement": "편곡",
+    "arrangementAbbr": "편곡",
     "produce": "제작",
-    "dance": "댄스"
+    "dance": "댄스",
+    "release_date": "발매일",
+    "first_appearance": "첫 등장",
+    "JASRAC_code": "JASRAC 작품 코드",
+    "ISWC_code": "ISWC 작품 코드",
+    "related_videos": "관련 YouTube 동영상",
+    "related_shorts": "관련 YouTube 쇼트",
+    "credits": "곡 크레딧",
+    "source_booklet": "북렛 정보",
+    "source_JASRAC": "JASRAC 정보",
+    "source_website": "웹 정보",
+    "source_unknown": "알 수 없음",
+    "records": "레코드"
   },
   "records": {
     "title": "쵸 도키메♡ 레코드 데이터베이스",

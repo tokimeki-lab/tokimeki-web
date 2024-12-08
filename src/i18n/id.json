@@ -37,8 +37,21 @@
     "lyrics": "Lirik",
     "music": "Musik",
     "arrangement": "Arransemen",
+    "arrangementAbbr": "Arr.",
     "produce": "Produksi",
-    "dance": "Tarian"
+    "dance": "Tarian",
+    "release_date": "Tanggal Rilis",
+    "first_appearance": "Penampilan Pertama",
+    "JASRAC_code": "Kode JASRAC",
+    "ISWC_code": "Kode ISWC",
+    "related_videos": "Video YouTube Terkait",
+    "related_shorts": "Short YouTube Terkait",
+    "credits": "Kredit Lagu",
+    "source_booklet": "Info Booklet",
+    "source_JASRAC": "Info JASRAC",
+    "source_website": "Info Web",
+    "source_unknown": "Tidak Diketahui",
+    "records": "Rekaman"
   },
   "records": {
     "title": "Database Rekaman Cho Tokimeki♡",

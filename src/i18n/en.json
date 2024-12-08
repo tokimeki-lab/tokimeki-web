@@ -37,8 +37,21 @@
     "lyrics": "Lyrics",
     "music": "Music",
     "arrangement": "Arrangement",
+    "arrangementAbbr": "Arr.",
     "produce": "Produce",
-    "dance": "Dance"
+    "dance": "Dance",
+    "release_date": "Release Date",
+    "first_appearance": "First Appearance",
+    "JASRAC_code": "JASRAC Code",
+    "ISWC_code": "ISWC Code",
+    "related_videos": "Related YouTube Videos",
+    "related_shorts": "Related YouTube Shorts",
+    "credits": "Song Credits",
+    "source_booklet": "Booklet Info",
+    "source_JASRAC": "JASRAC Info",
+    "source_website": "Web Info",
+    "source_unknown": "Unknown",
+    "records": "Records"
   },
   "records": {
     "title": "Cho Tokimeki♡Records Database",

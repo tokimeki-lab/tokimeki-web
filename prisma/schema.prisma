@@ -269,6 +269,7 @@ model record_editions {
   release_date   String          @db.VarChar(31)
   record_id      Int
   name           String          @db.VarChar(255)
+  name_en        String          @db.VarChar(255)
   display_order  Int
   price          String?         @db.VarChar(255)
   asin           String?         @db.VarChar(255)
@@ -299,6 +300,7 @@ model records {
   id              Int               @id @default(autoincrement())
   display_order   Int?
   name            String            @db.VarChar(255)
+  name_en         String            @db.VarChar(255)
   type            records_type
   label           String            @db.VarChar(255)
   product_url     String?           @db.VarChar(255)
@@ -338,6 +340,7 @@ model songs {
   slug                String                @unique(map: "slug") @db.VarChar(255)
   title               String                @db.VarChar(255)
   kana                String                @db.VarChar(255)
+  title_en            String                @db.VarChar(255)
   jasrac_code         String?               @db.VarChar(255)
   iswc_code           String?               @db.VarChar(255)
   thumbnail_url       String?               @db.VarChar(255)
@@ -391,6 +394,7 @@ model tweets {
 
   @@index([published_at], map: "published_at")
   @@index([screen_name], map: "screen_name")
+  @@index([published_timestamp], map: "published_timestamp")
 }
 
 model youtube_channels {
@@ -453,6 +457,7 @@ model youtube_videos {
   @@index([channel_id], map: "channel_id")
   @@index([published_at], map: "published_at")
   @@index([type_id], map: "type_id")
+  @@index([published_timestamp], map: "published_timestamp")
 }
 
 enum events_type {

@@ -37,8 +37,21 @@
     "lyrics": "作詞",
     "music": "作曲",
     "arrangement": "編曲",
+    "arrangementAbbr": "編曲",
     "produce": "制作",
-    "dance": "ダンス"
+    "dance": "ダンス",
+    "release_date": "リリース日",
+    "first_appearance": "初出",
+    "JASRAC_code": "JASRAC 作品コード",
+    "ISWC_code": "ISWC 作品コード",
+    "related_videos": "関連 YouTube 動画",
+    "related_shorts": "関連 YouTube ショート",
+    "credits": "楽曲クレジット",
+    "source_booklet": "ブックレット記載情報",
+    "source_JASRAC": "JASRAC 登録情報",
+    "source_website": "ウェブ記載情報",
+    "source_unknown": "情報確認中",
+    "records": "収録レコード"
   },
   "records": {
     "title": "超ときめき♡レコードデータベース",

@@ -37,8 +37,21 @@
     "lyrics": "歌词",
     "music": "音乐",
     "arrangement": "编曲",
+    "arrangementAbbr": "编曲",
     "produce": "制作",
-    "dance": "舞蹈"
+    "dance": "舞蹈",
+    "release_date": "发行日期",
+    "first_appearance": "首次亮相",
+    "JASRAC_code": "JASRAC代码",
+    "ISWC_code": "ISWC代码",
+    "related_videos": "相关YouTube视频",
+    "related_shorts": "相关YouTube短片",
+    "credits": "歌曲制作",
+    "source_booklet": "信息小册",
+    "source_JASRAC": "JASRAC信息",
+    "source_website": "网站信息",
+    "source_unknown": "未知来源",
+    "records": "唱片"
   },
   "records": {
     "title": "超心动♡唱片数据库",
