@@ -112,7 +112,21 @@
     "live": "现场",
     "event": "活动",
     "milestone": "里程碑",
-    "others": "其他"
+    "others": "其他",
+    "related_urls": "相关链接",
+    "related_blogs": "相关博客",
+    "related_tweets": "相关推文",
+    "related_videos": "相关视频",
+    "casts": "演员",
+    "costumes": "服装",
+    "credits": "制作人员",
+    "date": "日期",
+    "venue": "场地",
+    "hashtags": "标签",
+    "photos": "照片",
+    "setlist": "曲目列表",
+    "setlist_source": "曲目来源",
+    "encore": "安可"
   },
   "articles": {
     "title": "超心动♡文章数据库",

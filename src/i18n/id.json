@@ -112,7 +112,21 @@
     "live": "Langsung",
     "event": "Acara",
     "milestone": "Tonggak Sejarah",
-    "others": "Lainnya"
+    "others": "Lainnya",
+    "related_urls": "URL Terkait",
+    "related_blogs": "Blog Terkait",
+    "related_tweets": "Tweet Terkait",
+    "related_videos": "Video Terkait",
+    "casts": "Pemeran",
+    "costumes": "Kostum",
+    "credits": "Kredit",
+    "date": "Tanggal",
+    "venue": "Tempat",
+    "hashtags": "Tagar",
+    "photos": "Foto",
+    "setlist": "Daftar Lagu",
+    "setlist_source": "Sumber Daftar Lagu",
+    "encore": "Encore"
   },
   "articles": {
     "title": "Database Artikel Cho Tokimeki♡",

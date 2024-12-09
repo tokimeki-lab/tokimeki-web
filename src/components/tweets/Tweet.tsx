@@ -17,6 +17,7 @@ const Tweet = ({ status }: Props) => {
               rel="noopener noreferrer"
               className="font-bold text-sm"
               target="_blank">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={status.tweet_authors.icon_url!} alt={status.tweet_authors.user_name} className="w-10 aspect-square rounded-full" />
             </Link>
           </div>
@@ -45,6 +46,7 @@ const Tweet = ({ status }: Props) => {
         {status.image_urls && (
           <div className="w-full">
             <Link href={`https://twitter.com/${status.screen_name}/status/${status.id}`} rel="noopener noreferrer" prefetch={false} target="_blank">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={status.image_urls.split(',')[0]}
                 alt="tweet-image"

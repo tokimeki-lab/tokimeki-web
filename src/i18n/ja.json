@@ -112,7 +112,21 @@
     "live": "ライブ",
     "event": "イベント",
     "milestone": "マイルストン",
-    "others": "その他"
+    "others": "その他",
+    "related_urls": "関連記事・URL",
+    "related_blogs": "関連ブログ",
+    "related_tweets": "関連ツイート",
+    "related_videos": "関連 YouTube 動画",
+    "casts": "出演",
+    "costumes": "衣装",
+    "credits": "クレジット",
+    "date": "日時",
+    "venue": "会場",
+    "hashtags": "ハッシュタグ",
+    "photos": "写真",
+    "setlist": "セットリスト",
+    "setlist_source": "セットリスト出典",
+    "encore": "アンコール"
   },
   "articles": {
     "title": "超ときめき♡記事データベース",

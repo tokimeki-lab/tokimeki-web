@@ -1,5 +1,6 @@
 import SectionHeading from '@/components/common/SectionHeading'
 import { YouTubeVideo } from '@/db/data'
+import { getDictionary } from '@/i18n/dictionaries'
 import { Urls } from '@/utils/urls'
 
 interface Props {
@@ -8,11 +9,12 @@ interface Props {
 }
 
 const YouTubeVideoList = async ({ videos, showHeading = false }: Props) => {
+  const { events: t } = await getDictionary()
   return (
     <>
       {videos.length > 0 && (
         <div>
-          {showHeading && <SectionHeading title="📝 関連 YouTube 動画" />}
+          {showHeading && <SectionHeading title={`📝 ${t.related_videos}`} />}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {videos.map((video) => (
               <div key={video.id} className="relative rounded overflow-hidden aspect-video">

@@ -10,6 +10,7 @@ datasource db {
 model annual_events {
   id         Int                    @id @default(autoincrement())
   title      String                 @db.VarChar(255)
+  title_en   String                 @db.VarChar(255)
   date       String                 @db.VarChar(31)
   since_year Int
   until_year Int?

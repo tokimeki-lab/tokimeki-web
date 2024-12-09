@@ -112,7 +112,21 @@
     "live": "라이브",
     "event": "이벤트",
     "milestone": "마일스톤",
-    "others": "기타"
+    "others": "기타",
+    "related_urls": "관련 URL",
+    "related_blogs": "관련 블로그",
+    "related_tweets": "관련 트윗",
+    "related_videos": "관련 동영상",
+    "casts": "출연진",
+    "costumes": "의상",
+    "credits": "크레딧",
+    "date": "날짜",
+    "venue": "장소",
+    "hashtags": "해시태그",
+    "photos": "사진",
+    "setlist": "세트리스트",
+    "setlist_source": "세트리스트 출처",
+    "encore": "앙코르"
   },
   "articles": {
     "title": "쵸 도키메♡ 기사 데이터베이스",

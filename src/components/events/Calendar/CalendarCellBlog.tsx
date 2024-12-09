@@ -10,7 +10,6 @@ interface Props {
 
 const CalendarCellBlog = ({ blog, showBlogTitles }: Props) => {
   const { common: t } = useDictionary()
-
   if (showBlogTitles) {
     return (
       <div>
