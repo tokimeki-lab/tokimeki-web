@@ -79,6 +79,25 @@
     "genre": "Genre",
     "f_video_list": "Video %s"
   },
+  "costumes": {
+    "title": "Database Kostum Cho Tokimeki♡",
+    "desc": "Data kostum Cho Tokimeki♡Sendenbu",
+    "heading": "Kostum",
+    "chotokisencostume": "Kostum Cho Tokimeki♡Sendenbu",
+    "tokisencostume": "Kostum Tokimeki♡Sendenbu",
+    "birthdaycostume": "Kostum Ulang Tahun",
+    "costume_name_type": "Tipe Nama Kostum",
+    "official": "Resmi",
+    "unofficial": "Tidak Resmi",
+    "designer": "Desainer",
+    "first_appearance": "Penampilan Pertama",
+    "first_appearance_event": "Acara Penampilan Pertama",
+    "photo_by": "Foto oleh",
+    "san": "",
+    "related_tweets": "Tweet Terkait",
+    "related_videos": "Video Terkait",
+    "researching": "Sedang Diteliti"
+  },
   "events": {
     "title": "Database Acara Cho Tokimeki♡",
     "desc": "Data acara Cho Tokimeki♡Sendenbu",

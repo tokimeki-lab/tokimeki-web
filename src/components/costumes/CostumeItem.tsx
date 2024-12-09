@@ -1,4 +1,5 @@
 import { Artist, Costume, CostumeImage } from '@/db/data'
+import { isDefaultLocale } from '@/i18n/config'
 import Link from 'next/link'
 import CostumeImg from './CostumeImg'
 
@@ -16,8 +17,8 @@ const CostumeItem = async ({ costume }: Props) => {
       className="border hover:bg-gray-100 [&_div]:overflow-hidden [&_div]:text-ellipsis [&_div]:text-nowrap [&_div]:text-left rounded">
       <CostumeImg imageKey={imageKey} size="xs" alt={costume.name} />
       <div className="p-2">
-        <div className="text-sm font-semibold">{costume.name}</div>
-        {artist && <div className="text-xs text-gray-500">{artist.name}</div>}
+        <div className="text-sm font-semibold">{isDefaultLocale ? costume.name : costume.name_en}</div>
+        {artist && <div className="text-xs text-gray-500">{isDefaultLocale ? artist.name : artist.name_en}</div>}
       </div>
     </Link>
   )

@@ -388,7 +388,7 @@ model tweets {
   text                String           @db.Text
   published_at        String           @db.VarChar(255)
   image_urls          String?          @db.Text
-  published_timestamp Int?
+  published_timestamp Int
   created_at          DateTime         @default(now()) @db.DateTime(0)
   costume_tweets      costume_tweets[]
   event_tweets        event_tweets[]

@@ -85,7 +85,18 @@
     "heading": "衣装データ",
     "chotokisencostume": "超ときめき♡宣伝部の衣装",
     "tokisencostume": "ときめき♡宣伝部の衣装",
-    "birthdaycostume": "生誕祭衣装"
+    "birthdaycostume": "生誕祭衣装",
+    "costume_name_type": "衣装名表記",
+    "official": "公式",
+    "unofficial": "非公式",
+    "designer": "デザイナー",
+    "first_appearance": "お披露目日",
+    "first_appearance_event": "お披露目イベント",
+    "photo_by": "写真提供:",
+    "san": "さん",
+    "related_tweets": "関連ツイート",
+    "related_videos": "関連 YouTube 動画",
+    "researching": "調査中"
   },
   "events": {
     "title": "超ときめき♡イベントデータベース",

@@ -5,6 +5,7 @@ import {
   blogs,
   costume_images,
   costumes,
+  costumes_type,
   event_places,
   events,
   events_type,
@@ -15,6 +16,8 @@ import {
   song_credits,
   song_credits_role,
   songs,
+  tweet_authors,
+  tweets,
   youtube_channels,
   youtube_types,
   youtube_videos,
@@ -40,7 +43,11 @@ export type RecordType = records_type
 export type Artist = artists
 
 export type Costume = costumes
+export type CostumeType = costumes_type
 export type CostumeImage = costume_images
+
+export type Tweet = tweets
+export type TweetAuthor = tweet_authors
 
 export type YouTubeVideo = youtube_videos
 export type YouTubeChannel = youtube_channels

@@ -79,6 +79,25 @@
     "genre": "类型",
     "f_video_list": "%s的视频"
   },
+  "costumes": {
+    "title": "超心动♡打歌服数据库",
+    "desc": "超心动♡俱乐部的打歌服资料",
+    "heading": "打歌服",
+    "chotokisencostume": "超心动♡打歌服",
+    "tokisencostume": "打歌服",
+    "birthdaycostume": "生日服",
+    "costume_name_type": "服装名称类型",
+    "official": "官方",
+    "unofficial": "非官方",
+    "designer": "设计师",
+    "first_appearance": "首次亮相",
+    "first_appearance_event": "首次亮相活动",
+    "photo_by": "照片提供",
+    "san": "",
+    "related_tweets": "相关推文",
+    "related_videos": "相关视频",
+    "researching": "研究中"
+  },
   "events": {
     "title": "超心动♡活动数据库",
     "desc": "超心动♡俱乐部的活动资料",

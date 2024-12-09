@@ -79,6 +79,25 @@
     "genre": "Genre",
     "f_video_list": "Videos of %s"
   },
+  "costumes": {
+    "title": "Cho Tokimeki♡Costumes Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu costumes",
+    "heading": "Costumes",
+    "chotokisencostume": "Cho Tokimeki♡Sendenbu Costume",
+    "tokisencostume": "Tokimeki♡Sendenbu Costume",
+    "birthdaycostume": "Birthday Costume",
+    "costume_name_type": "Costume Name Type",
+    "official": "Official",
+    "unofficial": "Unofficial",
+    "designer": "Designer",
+    "first_appearance": "First Appearance",
+    "first_appearance_event": "First Appearance Event",
+    "photo_by": "Photo by",
+    "san": "",
+    "related_tweets": "Related Tweets",
+    "related_videos": "Related YouTube Videos",
+    "researching": "Researching"
+  },
   "events": {
     "title": "Cho Tokimeki♡Event Database",
     "desc": "Data of Cho Tokimeki♡Sendenbu events",

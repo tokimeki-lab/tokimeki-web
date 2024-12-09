@@ -79,6 +79,25 @@
     "genre": "장르",
     "f_video_list": "%s의 동영상 목록"
   },
+  "costumes": {
+    "title": "쵸 도키메♡ 의상 데이터베이스",
+    "desc": "「초 도키메키 센덴부」의 의상 데이터",
+    "heading": "의상 데이터",
+    "chotokisencostume": "초 도키메키 센덴부 의상",
+    "tokisencostume": "도키메키 센덴부 의상",
+    "birthdaycostume": "생일 의상",
+    "costume_name_type": "의상 이름 유형",
+    "official": "공식",
+    "unofficial": "비공식",
+    "designer": "디자이너",
+    "first_appearance": "첫 등장",
+    "first_appearance_event": "첫 등장 이벤트",
+    "photo_by": "사진 제공",
+    "san": "",
+    "related_tweets": "관련 트윗",
+    "related_videos": "관련 동영상",
+    "researching": "조사 중"
+  },
   "events": {
     "title": "쵸 도키메♡ 이벤트 데이터베이스",
     "desc": "「초 도키메키 센덴부」의 이벤트 데이터",
