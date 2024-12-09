@@ -1,5 +1,6 @@
 import LinkButton from '@/components/common/LinkButton'
 import { RecordEdition, RecordType } from '@/db/data'
+import { isDefaultLocale } from '@/i18n/config'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
 import { FaAmazon } from 'react-icons/fa6'
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const RecordEditionDetails = async ({ type, edition }: Props) => {
-  const { id, catalog_number, name, price, release_date, thumbnail_url, asin } = edition
+  const { id, catalog_number, name, name_en, price, release_date, thumbnail_url, asin } = edition
   return (
     <>
       <div id={catalog_number} className="relative -top-16 bg-black" />
@@ -25,7 +26,7 @@ const RecordEditionDetails = async ({ type, edition }: Props) => {
           ) : (
             <AlbumCover src={thumbnail_url || Urls.noImage} alt={edition.name} />
           )}
-          {asin && (
+          {isDefaultLocale && asin && (
             <div className="py-2">
               <LinkButton icon={<FaAmazon />} text="Amazon 商品ページ" href={Urls.amazonProduct(asin)} />
             </div>
@@ -36,7 +37,7 @@ const RecordEditionDetails = async ({ type, edition }: Props) => {
             <div>
               <span className="bg-black py-1 px-2 text-white text-xs">{type}</span>
             </div>
-            <div className="font-semibold">{name}</div>
+            <div className="font-semibold">{isDefaultLocale ? name : name_en}</div>
             <div className="flex flex-wrap gap-2 [&_]:text-gray-500 [&_]:text-xs">
               <div>{catalog_number}</div>
               <div>{release_date}</div>

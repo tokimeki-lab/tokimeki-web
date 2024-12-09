@@ -37,6 +37,7 @@ model artists {
   id                 Int             @id @default(autoincrement())
   slug               String          @db.VarChar(255)
   name               String          @db.VarChar(255)
+  name_en            String          @db.VarChar(255)
   kana               String          @db.VarChar(255)
   wikipedia_slug     String?         @db.VarChar(255)
   twitter_screenname String?         @db.VarChar(255)

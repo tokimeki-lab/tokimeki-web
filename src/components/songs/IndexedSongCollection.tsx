@@ -1,6 +1,6 @@
 import IndexHeading from '@/components/common/IndexHeading'
 import { jpIndexNavItems } from '@/components/common/IndexNav'
-import { Song, SongCredit } from '@/db/data'
+import { Artist, Song, SongCredit } from '@/db/data'
 import prisma from '@/db/prisma'
 import { unstable_cache } from 'next/cache'
 import SongCollection from './SongCollection'
@@ -8,7 +8,7 @@ import SongCollection from './SongCollection'
 const IndexedSongCollection = async () => {
   const songs = await listSongs()
   const navItems = jpIndexNavItems
-  const groupedSongs = new Map<string, (Song & { song_credits: SongCredit[] })[]>()
+  const groupedSongs = new Map<string, (Song & { song_credits: (SongCredit & { artists: Artist })[] })[]>()
   for (const song of songs) {
     let key = navItems.length - 1
     for (let i = 1; i <= navItems.length; i++) {
@@ -20,7 +20,6 @@ const IndexedSongCollection = async () => {
     const newItems = [...(groupedSongs.get(navItems[key]) || []), song]
     groupedSongs.set(navItems[key], newItems)
   }
-
   return (
     <div>
       {navItems.map((i) => (
@@ -36,7 +35,11 @@ const IndexedSongCollection = async () => {
 const listSongs = unstable_cache(async () =>
   prisma.songs.findMany({
     include: {
-      song_credits: true,
+      song_credits: {
+        include: {
+          artists: true,
+        },
+      },
     },
     orderBy: {
       kana: 'asc',

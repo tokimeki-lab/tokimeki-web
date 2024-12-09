@@ -1,9 +1,10 @@
-import { RecordTrack, Song, SongCredit } from '@/db/data'
+import { Artist, RecordTrack, Song, SongCredit } from '@/db/data'
+import { isDefaultLocale } from '@/i18n/config'
 import Link from 'next/link'
 import TrackCredit from './TrackCredit'
 
 export interface TrackItemProps {
-  item: RecordTrack & { songs?: Song & { song_credits: SongCredit[] } }
+  item: RecordTrack & { songs?: Song & { song_credits: (SongCredit & { artists: Artist })[] } }
 }
 
 const TrackItem = ({ item }: TrackItemProps) => {
@@ -15,7 +16,7 @@ const TrackItem = ({ item }: TrackItemProps) => {
         <div className="font-medium">
           {song ? (
             <Link href={`/songs/${song.slug}`} prefetch={false} className="text-primary">
-              {title}
+              {isDefaultLocale ? title : song.title_en}
             </Link>
           ) : (
             <>{title}</>

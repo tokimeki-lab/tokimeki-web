@@ -1,8 +1,8 @@
-import { Song, SongCredit } from '@/db/data'
+import { Artist, Song, SongCredit } from '@/db/data'
 import SongItem from './SongItem'
 
 interface Props {
-  songs: (Song & { song_credits: SongCredit[] })[]
+  songs: (Song & { song_credits: (SongCredit & { artists: Artist })[] })[]
 }
 
 const SongCollection = async ({ songs }: Props) => {

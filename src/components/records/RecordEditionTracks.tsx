@@ -27,7 +27,11 @@ const listRecordTracksByEdition = unstable_cache(async (editionId: number) =>
     where: { edition_id: editionId },
     include: {
       songs: {
-        include: { song_credits: true },
+        include: {
+          song_credits: {
+            include: { artists: true },
+          },
+        },
       },
     },
     orderBy: [{ track: 'asc' }],

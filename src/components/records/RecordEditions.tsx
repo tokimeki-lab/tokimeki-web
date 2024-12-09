@@ -1,6 +1,7 @@
 import { AppleMusicAlbumPreviewPlayer } from '@/components/songs/AppleMusicAlbumPlayer'
 import { Record } from '@/db/data'
 import prisma from '@/db/prisma'
+import { isDefaultLocale } from '@/i18n/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import RecordEditionDetails from './RecordEditionDetails'
@@ -17,7 +18,7 @@ const RecordEditions = async ({ record }: Props) => {
         {record.product_url ? (
           <div>
             <Link href={record.product_url} target="_blank" className="inline-block text-lg text-primary font-bold">
-              {record.name}
+              {isDefaultLocale ? record.name : record.name_en}
             </Link>
           </div>
         ) : (

@@ -1,10 +1,11 @@
-import { SongCredit } from '@/db/data'
+import { Artist, SongCredit } from '@/db/data'
+import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { AdjustmentsVerticalIcon, DocumentTextIcon, MicrophoneIcon, MusicalNoteIcon, SparklesIcon, UserGroupIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
 interface Props {
-  credit: SongCredit
+  credit: SongCredit & { artists: Artist }
 }
 
 const SongCreditItem = async ({ credit }: Props) => {
@@ -17,9 +18,10 @@ const SongCreditItem = async ({ credit }: Props) => {
         <div className="flex justify-center pr-2 lg:pr-4">{icon}</div>
         <div>
           <div className="text-sm text-gray-500">{title}</div>
+          {!isDefaultLocale && <div className="text-xs text-gray-300">{credit.name}</div>}
           <div className="pb-1 font-semibold">
             <Link href={`/artists/${credit.artist_id}`} className="text-primary">
-              {credit.name}
+              {isDefaultLocale ? credit.name : credit.artists.name_en}
             </Link>
           </div>
           <div className="text-xs text-gray-500">

@@ -1,26 +1,26 @@
-import { Song, SongCredit } from '@/db/data'
+import { Artist, Song, SongCredit } from '@/db/data'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
 
 interface SongItemProps {
-  song: Song & { song_credits: SongCredit[] }
+  song: Song & { song_credits: (SongCredit & { artists: Artist })[] }
 }
 
 const SongItem = async ({ song }: SongItemProps) => {
   const { title, title_en, slug, thumbnail_url, song_credits: credits } = song
   const lyrics = credits
     .filter((c) => c.role === 'Lyrics')
-    ?.map((c) => c.name)
+    ?.map((c) => (isDefaultLocale ? c.name : c.artists.name_en))
     .join('/')
   const music = credits
     .filter((c) => c.role === 'Music')
-    ?.map((c) => c.name)
+    ?.map((c) => (isDefaultLocale ? c.name : c.artists.name_en))
     .join('/')
   const arrangers = credits
     .filter((c) => c.role === 'Arrangement')
-    ?.map((c) => c.name)
+    ?.map((c) => (isDefaultLocale ? c.name : c.artists.name_en))
     .join('/')
   const { songs: t } = await getDictionary()
   return (

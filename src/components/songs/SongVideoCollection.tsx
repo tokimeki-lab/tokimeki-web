@@ -27,15 +27,6 @@ const SongVideoCollection = async ({ songId, short }: Props) => {
 
 const listYouTubeVidoesBySong = unstable_cache(async (songId: number, short: boolean, offset?: number, limit?: number) =>
   prisma.youtube_videos.findMany({
-    select: {
-      id: true,
-      title: true,
-      channel_id: true,
-      published_at: true,
-      type_id: true,
-      is_short: true,
-      youtube_channels: true,
-    },
     where: {
       youtube_video_songs: {
         some: {

@@ -37,6 +37,7 @@ const SongCredits = async ({ songId }: Props) => {
 
 const listSongCreditsBySong = unstable_cache(async (songId: number) =>
   prisma.song_credits.findMany({
+    include: { artists: true },
     where: {
       song_id: songId,
     },

@@ -1,6 +1,7 @@
 import {
   annual_events,
   articles,
+  artists,
   blogs,
   event_places,
   events,
@@ -33,6 +34,8 @@ export type Record = records
 export type RecordEdition = record_editions
 export type RecordTrack = record_tracks
 export type RecordType = records_type
+
+export type Artist = artists
 
 export type YouTubeVideo = youtube_videos
 export type YouTubeChannel = youtube_channels

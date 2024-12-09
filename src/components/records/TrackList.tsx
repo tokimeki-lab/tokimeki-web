@@ -1,8 +1,8 @@
-import { RecordTrack, Song, SongCredit } from '@/db/data'
+import { Artist, RecordTrack, Song, SongCredit } from '@/db/data'
 import TrackItem from './TrackItem'
 
 interface Props {
-  tracks: (RecordTrack & { song?: Song & { credits: SongCredit[] } })[]
+  tracks: (RecordTrack & { song?: Song & { credits: (SongCredit & { artists: Artist })[] } })[]
 }
 
 const TrackList = ({ tracks }: Props) => {
