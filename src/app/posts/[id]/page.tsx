@@ -9,8 +9,6 @@ import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 
-export const dynamic = 'force-static'
-
 interface Props {
   params: Promise<{ id: string }>
 }

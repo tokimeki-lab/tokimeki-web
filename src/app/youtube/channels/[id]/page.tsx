@@ -5,6 +5,8 @@ import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import YouTubeChannelVideosPage from './pages/[page]/page'
 
+export const revalidate = 43200
+
 interface Props {
   params: Promise<{ id?: string; page?: string }>
 }

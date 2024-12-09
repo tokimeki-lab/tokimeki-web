@@ -11,6 +11,8 @@ import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
 
+export const revalidate = 43200
+
 interface Props {
   params: Promise<{ id: string; page: string }>
 }

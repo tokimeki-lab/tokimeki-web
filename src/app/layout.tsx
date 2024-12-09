@@ -6,6 +6,9 @@ import { DictionaryProvider } from '@/i18n/hook'
 import { ReactNode } from 'react'
 import './globals.css'
 
+export const dynamic = 'force-static'
+export const revalidate = 86400
+
 export async function generateMetadata() {
   const { common } = await getDictionary()
   const { title, desc } = common

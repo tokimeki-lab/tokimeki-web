@@ -11,8 +11,6 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
 
-export const revalidate = 86400
-
 interface Props {
   params: Promise<{ yyyymm: string }>
 }

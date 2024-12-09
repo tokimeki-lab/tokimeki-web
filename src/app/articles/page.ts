@@ -2,8 +2,6 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { Metadata } from 'next'
 import Articles from './[yyyymm]/page'
 
-export const revalidate = 60
-
 export const generateMetadata = async (): Promise<Metadata> => {
   const { articles: t } = await getDictionary()
   const title = t.title
