@@ -3,11 +3,14 @@ import Header from '@/components/common/Header'
 import { currentBaseUrl, currentLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { DictionaryProvider } from '@/i18n/hook'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { ReactNode } from 'react'
 import './globals.css'
 
 export const dynamic = 'force-static'
 export const revalidate = 86400
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
 export async function generateMetadata() {
   const { common } = await getDictionary()
@@ -64,6 +67,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <Footer />
         </DictionaryProvider>
       </body>
+      {gtmId && <GoogleTagManager gtmId={gtmId} />}
     </html>
   )
 }
