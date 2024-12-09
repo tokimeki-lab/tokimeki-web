@@ -61,7 +61,15 @@
   "artists": {
     "title": "超ときめき♡アーティストデータベース",
     "desc": "「超ときめき♡宣伝部」のアーティストデータ",
-    "heading": "アーティストデータ"
+    "heading": "アーティストデータ",
+    "vocal": "歌唱",
+    "lyrics": "作詞",
+    "music": "作曲",
+    "arrangement": "編曲",
+    "produce": "制作",
+    "dance": "ダンス",
+    "costume": "衣装",
+    "event": "イベント"
   },
   "youtube": {
     "title": "超ときめき♡YouTubeデータベース",

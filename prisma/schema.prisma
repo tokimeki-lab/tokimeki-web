@@ -94,6 +94,7 @@ model costumes {
   id                     Int                      @id @default(autoincrement())
   display_order          Int?
   name                   String                   @db.VarChar(255)
+  name_en                String                   @db.VarChar(255)
   is_official_name       Boolean                  @default(false)
   debut_event_id         Int?
   artist_id              Int?

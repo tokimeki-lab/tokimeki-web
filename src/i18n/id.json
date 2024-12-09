@@ -58,6 +58,19 @@
     "desc": "Data rekaman Cho Tokimeki♡Sendenbu",
     "heading": "Rekaman"
   },
+  "artists": {
+    "title": "Database Artis Cho Tokimeki♡",
+    "desc": "Data artis Cho Tokimeki♡Sendenbu",
+    "heading": "Artis",
+    "vocal": "Vokal",
+    "lyrics": "Lirik",
+    "music": "Musik",
+    "arrangement": "Arransemen",
+    "produce": "Produksi",
+    "dance": "Tarian",
+    "costume": "Kostum",
+    "event": "Acara"
+  },
   "youtube": {
     "title": "Database YouTube Cho Tokimeki♡",
     "desc": "Data YouTube Cho Tokimeki♡Sendenbu",

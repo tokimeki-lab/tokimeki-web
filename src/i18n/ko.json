@@ -58,6 +58,19 @@
     "desc": "「초 도키메키 센덴부」의 레코드 데이터",
     "heading": "레코드 데이터"
   },
+  "artists": {
+    "title": "쵸 도키메♡ 아티스트 데이터베이스",
+    "desc": "「초 도키메키 센덴부」의 아티스트 데이터",
+    "heading": "아티스트 데이터",
+    "vocal": "보컬",
+    "lyrics": "가사",
+    "music": "음악",
+    "arrangement": "편곡",
+    "produce": "제작",
+    "dance": "댄스",
+    "costume": "의상",
+    "event": "이벤트"
+  },
   "youtube": {
     "title": "쵸 도키메♡ YouTube 데이터베이스",
     "desc": "「초 도키메키 센덴부」의 YouTube 데이터",

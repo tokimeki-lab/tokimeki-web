@@ -3,6 +3,8 @@ import {
   articles,
   artists,
   blogs,
+  costume_images,
+  costumes,
   event_places,
   events,
   events_type,
@@ -36,6 +38,9 @@ export type RecordTrack = record_tracks
 export type RecordType = records_type
 
 export type Artist = artists
+
+export type Costume = costumes
+export type CostumeImage = costume_images
 
 export type YouTubeVideo = youtube_videos
 export type YouTubeChannel = youtube_channels

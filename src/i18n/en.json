@@ -58,6 +58,19 @@
     "desc": "Data of Cho Tokimeki♡Sendenbu records",
     "heading": "Records"
   },
+  "artists": {
+    "title": "Cho Tokimeki♡Artists Database",
+    "desc": "Data of Cho Tokimeki♡Sendenbu artists",
+    "heading": "Artists",
+    "vocal": "Vocal",
+    "lyrics": "Lyrics",
+    "music": "Music",
+    "arrangement": "Arrangement",
+    "produce": "Produce",
+    "dance": "Dance",
+    "costume": "Costume",
+    "event": "Event"
+  },
   "youtube": {
     "title": "Cho Tokimeki♡YouTube Database",
     "desc": "YouTube data of Cho Tokimeki♡Sendenbu",
