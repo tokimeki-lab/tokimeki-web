@@ -11,7 +11,7 @@ interface Props {
 const LinkButton = ({ icon, text, href, className }: Props) => {
   return (
     <Link href={href} target="_blank">
-      <div className={`flex gap-2 p-1 justify-center items-center rounded shadow bg-tokimekiorange text-white text-sm ${className}`}>
+      <div className={`flex gap-2 p-1 justify-center items-center rounded shadow bg-orange text-white text-sm ${className}`}>
         <div>{icon}</div>
         <div>{text}</div>
       </div>

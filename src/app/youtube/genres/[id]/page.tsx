@@ -1,4 +1,5 @@
 import prisma from '@/db/prisma'
+import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
@@ -23,7 +24,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     return null
   } else {
     const { youtube: t } = await getDictionary()
-    const title = `${type.name} - ${t.title}`
+    const title = `${isDefaultLocale ? type.name : type.name_en} - ${t.title}`
     const description = `${type.name} - ${t.desc}`
     return {
       title,

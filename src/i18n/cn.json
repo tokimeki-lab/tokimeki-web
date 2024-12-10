@@ -16,7 +16,7 @@
   "home": {
     "subtitle": "研究一些关于超心动♡的东西",
     "dbtitle": "超心动♡数据库",
-    "dbdesc": "超心动♡俱乐部的数据库",
+    "dbdesc": "超心动♡宣传部的数据库",
     "songs": "歌曲",
     "records": "唱片",
     "artists": "创作者",
@@ -25,13 +25,13 @@
     "events": "活动",
     "articles": "报道",
     "labtitle": "超心动♡实验室",
-    "labdesc": "与超心动♡俱乐部相关的应用和报道",
+    "labdesc": "与超心动♡宣传部相关的应用和报道",
     "posts": "帖子",
     "photos": "照片"
   },
   "songs": {
     "title": "超心动♡歌曲数据库",
-    "desc": "超心动♡俱乐部的歌曲资料",
+    "desc": "超心动♡宣传部的歌曲资料",
     "heading": "歌曲",
     "vocal": "主唱",
     "lyrics": "歌词",
@@ -55,12 +55,12 @@
   },
   "records": {
     "title": "超心动♡唱片数据库",
-    "desc": "超心动♡俱乐部的唱片资料",
+    "desc": "超心动♡宣传部的唱片资料",
     "heading": "唱片"
   },
   "artists": {
     "title": "超心动♡创作者数据库",
-    "desc": "超心动♡俱乐部的创作者资料",
+    "desc": "超心动♡宣传部的创作者资料",
     "heading": "创作者",
     "vocal": "主唱",
     "lyrics": "歌词",
@@ -73,7 +73,7 @@
   },
   "youtube": {
     "title": "超心动♡YouTube数据库",
-    "desc": "超心动♡俱乐部的YouTube资料",
+    "desc": "超心动♡宣传部的YouTube资料",
     "heading": "YouTube",
     "channel": "频道",
     "genre": "类型",
@@ -81,7 +81,7 @@
   },
   "costumes": {
     "title": "超心动♡打歌服数据库",
-    "desc": "超心动♡俱乐部的打歌服资料",
+    "desc": "超心动♡宣传部的打歌服资料",
     "heading": "打歌服",
     "chotokisencostume": "超心动♡打歌服",
     "tokisencostume": "打歌服",
@@ -100,7 +100,7 @@
   },
   "events": {
     "title": "超心动♡活动数据库",
-    "desc": "超心动♡俱乐部的活动资料",
+    "desc": "超心动♡宣传部的活动资料",
     "heading": "活动",
     "show_blog_title": "显示博客标题",
     "f_calendar_title": "%d/%d的日历",
@@ -130,7 +130,7 @@
   },
   "articles": {
     "title": "超心动♡文章数据库",
-    "desc": "关于超心动♡俱乐部的报导",
+    "desc": "关于超心动♡宣传部的报导",
     "heading": "报导",
     "noarticles": "未找到相关报导",
     "f_subtitle": "%s年%s月的新闻",

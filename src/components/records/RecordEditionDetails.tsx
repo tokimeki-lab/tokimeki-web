@@ -28,7 +28,7 @@ const RecordEditionDetails = async ({ type, edition }: Props) => {
           )}
           {isDefaultLocale && asin && (
             <div className="py-2">
-              <LinkButton icon={<FaAmazon />} text="Amazon 商品ページ" href={Urls.amazonProduct(asin)} />
+              <LinkButton icon={<FaAmazon />} text="Amazon.co.jp" href={Urls.amazonProduct(asin)} />
             </div>
           )}
         </div>
