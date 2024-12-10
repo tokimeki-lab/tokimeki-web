@@ -103,7 +103,7 @@
     "desc": "「超ときめき♡宣伝部」のイベントデータ",
     "heading": "イベントデータ",
     "show_blog_title": "ブログタイトルを表示",
-    "f_calendar_title": "`%d年%d月のカレンダー`",
+    "f_calendar_title": "%d年%d月のカレンダー",
     "f_link_for_articles": "%d年%d月の記事一覧",
     "f_tweet_label": "@%s のツイート",
     "f_calendar_label": "%d年%dのカレンダーを開く",

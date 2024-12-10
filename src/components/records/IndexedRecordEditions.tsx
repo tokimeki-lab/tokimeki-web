@@ -42,7 +42,7 @@ const IndexedRecordEditions = async () => {
 const listRecordEditions = unstable_cache(async () =>
   prisma.record_editions.findMany({
     include: { records: true },
-    orderBy: { release_date: 'desc' },
+    orderBy: { release_date: 'asc' },
   })
 )
 
