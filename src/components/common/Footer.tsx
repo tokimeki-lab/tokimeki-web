@@ -1,3 +1,4 @@
+import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
@@ -5,6 +6,7 @@ import Link from 'next/link'
 const Footer = async () => {
   const { common } = await getDictionary()
   const isoDate = new Date().toISOString()
+  const { credits: t } = await getDictionary()
   return (
     <footer className="grid gap-4 p-32 text-center">
       <div className="">
@@ -23,6 +25,16 @@ const Footer = async () => {
           Twitter
         </Link>
       </div>
+      {!isDefaultLocale && (
+        <div className="flex justify-center space-x-1 text-xs text-gray-500">
+          <span>Translation Support:</span>
+          {t.map((item) => (
+            <Link key={item.name} href={item.url} target="_blank">
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
       <div className="text-xs text-gray-200">generated at {isoDate}</div>
     </footer>
   )

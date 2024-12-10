@@ -140,5 +140,6 @@
     "title": "Pos Cho Tokimeki♡Lab",
     "desc": "Catatan tentang Cho Tokimeki♡Lab",
     "heading": "Pos"
-  }
+  },
+  "credits": [{ "name": "GitHub Copilot", "url": "https://github.com/features/copilot" }]
 }
