@@ -1,5 +1,6 @@
 import Container from '@/components/common/Container'
 import MenuSection from '@/components/home/MenuSection'
+import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 
 export default async function Home() {
@@ -21,14 +22,16 @@ export default async function Home() {
             { icon: '📝', name: home.articles, href: '/articles' },
           ]}
         />
-        <MenuSection
-          title={home.labtitle}
-          description={home.labdesc}
-          items={[
-            { icon: '📙', name: home.posts, href: '/posts' },
-            { icon: '📷', name: home.photos, href: '/photos', enabled: false },
-          ]}
-        />
+        {isDefaultLocale && (
+          <MenuSection
+            title={home.labtitle}
+            description={home.labdesc}
+            items={[
+              { icon: '📙', name: home.posts, href: '/posts' },
+              { icon: '📷', name: home.photos, href: '/photos', enabled: false },
+            ]}
+          />
+        )}
       </div>
     </Container>
   )
