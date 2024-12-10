@@ -5,6 +5,7 @@ import Pagenation from '@/components/common/Pagenation'
 import Title from '@/components/common/Title'
 import VideoCollection from '@/components/youtube/VideoCollection'
 import prisma from '@/db/prisma'
+import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
@@ -70,12 +71,12 @@ const YouTubeTypeVideosPage = async ({ params }: Props) => {
         items={[
           { name: 'YouTube', href: '/youtube' },
           {
-            name: `${type.name}`,
+            name: `${isDefaultLocale ? type.name : type.name_en}`,
             href: `/youtube/genres/${id}`,
           },
         ]}
       />
-      <Title title={t.title} description={format(t.f_video_list, type.name)} />
+      <Title title={t.title} description={format(t.f_video_list, isDefaultLocale ? type.name : type.name_en)} />
       <VideoCollection videos={videos.slice(0, YouTubeVideosPerPage)} showChannel={true} />
       <Pagenation current={page} hasNext={hasNext} path={(page) => `/youtube/genres/${id}/pages/${page}`} />
     </Container>

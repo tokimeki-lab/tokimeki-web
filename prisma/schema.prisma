@@ -415,6 +415,7 @@ model youtube_types {
   id             Int              @id @default(autoincrement())
   slug           String           @db.VarChar(255)
   name           String           @db.VarChar(255)
+  name_en        String           @db.VarChar(255)
   sort_priority  Int
   icon_emoji     String?          @db.VarChar(1)
   youtube_videos youtube_videos[]

@@ -1,9 +1,10 @@
 import Footer from '@/components/common/Footer'
 import Header from '@/components/common/Header'
-import { currentBaseUrl, currentLocale } from '@/i18n/config'
+import { currentBaseUrl, currentLocale, isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { DictionaryProvider } from '@/i18n/hook'
 import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/react'
 import { ReactNode } from 'react'
 import './globals.css'
 
@@ -60,14 +61,15 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const dictionary = await getDictionary(currentLocale)
   return (
     <html lang={currentLocale}>
+      {gtmId && <GoogleTagManager gtmId={gtmId} />}
       <body>
         <DictionaryProvider dictionary={dictionary}>
           <Header />
           <main>{children}</main>
           <Footer />
         </DictionaryProvider>
+        {isDefaultLocale && <Analytics />}
       </body>
-      {gtmId && <GoogleTagManager gtmId={gtmId} />}
     </html>
   )
 }
