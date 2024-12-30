@@ -2,6 +2,8 @@ import IndexHeading from '@/components/common/IndexHeading'
 import IndexNav, { yearsIndexNavItems } from '@/components/common/IndexNav'
 import { Record, RecordEdition } from '@/db/data'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { dateToYYYYMMDD } from '@/utils/datetime'
 import { unstable_cache } from 'next/cache'
 import RecordEditionItem from './RecordEditionItem'
@@ -39,11 +41,14 @@ const IndexedRecordEditions = async () => {
   )
 }
 
-const listRecordEditions = unstable_cache(async () =>
-  prisma.record_editions.findMany({
-    include: { records: true },
-    orderBy: { release_date: 'asc' },
-  })
+const listRecordEditions = unstable_cache(
+  async () =>
+    prisma.record_editions.findMany({
+      include: { records: true },
+      orderBy: { release_date: 'asc' },
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default IndexedRecordEditions

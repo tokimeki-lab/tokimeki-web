@@ -7,12 +7,12 @@ import VideoCollection from '@/components/youtube/VideoCollection'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
-
-export const revalidate = 43200
 
 interface Props {
   params: Promise<{ id: string; page: string }>
@@ -83,25 +83,31 @@ const YouTubeTypeVideosPage = async ({ params }: Props) => {
   )
 }
 
-const getYouTubeVideoType = unstable_cache(async (id: number) =>
-  prisma.youtube_types.findUnique({
-    where: {
-      id,
-    },
-  })
+const getYouTubeVideoType = unstable_cache(
+  async (id: number) =>
+    prisma.youtube_types.findUnique({
+      where: {
+        id,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
-const listYouTubeVideos = unstable_cache(async (typeId: number, offset: number, limit: number) =>
-  prisma.youtube_videos.findMany({
-    orderBy: {
-      published_at: 'desc',
-    },
-    where: {
-      type_id: typeId,
-    },
-    skip: offset,
-    take: limit,
-  })
+const listYouTubeVideos = unstable_cache(
+  async (typeId: number, offset: number, limit: number) =>
+    prisma.youtube_videos.findMany({
+      orderBy: {
+        published_at: 'desc',
+      },
+      where: {
+        type_id: typeId,
+      },
+      skip: offset,
+      take: limit,
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
 export default YouTubeTypeVideosPage

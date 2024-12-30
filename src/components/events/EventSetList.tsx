@@ -1,6 +1,8 @@
 import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import SectionHeading from '../common/SectionHeading'
@@ -36,26 +38,32 @@ const EventSetList = async ({ event, showHeading = false }: Props) => {
   )
 }
 
-const listEventSetlist = unstable_cache(async (eventId: number) =>
-  prisma.event_setlist.findMany({
-    where: {
-      event_id: eventId,
-    },
-    include: {
-      songs: true,
-    },
-    orderBy: {
-      order: 'asc',
-    },
-  })
+const listEventSetlist = unstable_cache(
+  async (eventId: number) =>
+    prisma.event_setlist.findMany({
+      where: {
+        event_id: eventId,
+      },
+      include: {
+        songs: true,
+      },
+      orderBy: {
+        order: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
-const getSetlistCredit = unstable_cache(async (eventId: number) =>
-  prisma.setlist_credit.findFirst({
-    where: {
-      event_id: eventId,
-    },
-  })
+const getSetlistCredit = unstable_cache(
+  async (eventId: number) =>
+    prisma.setlist_credit.findFirst({
+      where: {
+        event_id: eventId,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default EventSetList

@@ -1,6 +1,8 @@
 import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SectionHeading from '../common/SectionHeading'
 import CostumeCollection from '../costumes/CostumeCollection'
@@ -26,27 +28,30 @@ const EventCostumeList = async ({ event, showHeading = false }: Props) => {
   )
 }
 
-const listEventCostumes = unstable_cache(async (eventId: number) =>
-  prisma.event_cosutumes.findMany({
-    select: {
-      costumes: {
-        include: {
-          costume_images: {
-            orderBy: {
-              display_order: 'asc',
+const listEventCostumes = unstable_cache(
+  async (eventId: number) =>
+    prisma.event_cosutumes.findMany({
+      select: {
+        costumes: {
+          include: {
+            costume_images: {
+              orderBy: {
+                display_order: 'asc',
+              },
             },
+            artists: true,
           },
-          artists: true,
         },
       },
-    },
-    where: {
-      event_id: eventId,
-    },
-    orderBy: {
-      display_order: 'asc',
-    },
-  })
+      where: {
+        event_id: eventId,
+      },
+      orderBy: {
+        display_order: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default EventCostumeList

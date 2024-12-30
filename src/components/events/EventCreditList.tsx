@@ -1,6 +1,8 @@
 import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import SectionHeading from '../common/SectionHeading'
@@ -56,7 +58,9 @@ const listEventCredits = unstable_cache(
       orderBy: {
         display_order: 'asc',
       },
-    })
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default EventCreditList

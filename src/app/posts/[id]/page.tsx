@@ -5,6 +5,8 @@ import { Markdown } from '@/components/common/Markdown'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -67,11 +69,14 @@ const Post = async ({ params }: Props) => {
   )
 }
 
-const getPost = unstable_cache(async (id: number) =>
-  prisma.posts.findUnique({
-    include: { post_categories: true },
-    where: { id },
-  })
+const getPost = unstable_cache(
+  async (id: number) =>
+    prisma.posts.findUnique({
+      include: { post_categories: true },
+      where: { id },
+    }),
+  undefined,
+  { tags: [CacheTag('Posts')], revalidate: Config.revalidate }
 )
 
 export default Post

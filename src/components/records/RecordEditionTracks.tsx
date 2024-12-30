@@ -1,5 +1,7 @@
 import SectionHeading from '@/components/common/SectionHeading'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import TrackList from './TrackList'
 
@@ -22,20 +24,23 @@ const RecordEditionTracks = async ({ editionId }: Props) => {
   )
 }
 
-const listRecordTracksByEdition = unstable_cache(async (editionId: number) =>
-  prisma.record_tracks.findMany({
-    where: { edition_id: editionId },
-    include: {
-      songs: {
-        include: {
-          song_credits: {
-            include: { artists: true },
+const listRecordTracksByEdition = unstable_cache(
+  async (editionId: number) =>
+    prisma.record_tracks.findMany({
+      where: { edition_id: editionId },
+      include: {
+        songs: {
+          include: {
+            song_credits: {
+              include: { artists: true },
+            },
           },
         },
       },
-    },
-    orderBy: [{ track: 'asc' }],
-  })
+      orderBy: [{ track: 'asc' }],
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default RecordEditionTracks

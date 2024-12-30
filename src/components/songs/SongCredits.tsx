@@ -1,6 +1,8 @@
 import SectionHeading from '@/components/common/SectionHeading'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SongCreditItem from './SongCreditItem'
 
@@ -35,13 +37,16 @@ const SongCredits = async ({ songId }: Props) => {
   )
 }
 
-const listSongCreditsBySong = unstable_cache(async (songId: number) =>
-  prisma.song_credits.findMany({
-    include: { artists: true },
-    where: {
-      song_id: songId,
-    },
-  })
+const listSongCreditsBySong = unstable_cache(
+  async (songId: number) =>
+    prisma.song_credits.findMany({
+      include: { artists: true },
+      where: {
+        song_id: songId,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default SongCredits

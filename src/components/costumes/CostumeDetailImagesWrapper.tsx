@@ -1,5 +1,7 @@
 import { Costume } from '@/db/data'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import CostumeDetailImages from './CostumeDetailImages'
 
@@ -21,7 +23,9 @@ const listCostumeImages = unstable_cache(
       orderBy: {
         display_order: 'asc',
       },
-    })
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
 )
 
 export default CostumeDetailImagesWrapper

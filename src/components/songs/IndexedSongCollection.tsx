@@ -2,6 +2,8 @@ import IndexHeading from '@/components/common/IndexHeading'
 import { jpIndexNavItems } from '@/components/common/IndexNav'
 import { Artist, Song, SongCredit } from '@/db/data'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SongCollection from './SongCollection'
 
@@ -32,19 +34,22 @@ const IndexedSongCollection = async () => {
   )
 }
 
-const listSongs = unstable_cache(async () =>
-  prisma.songs.findMany({
-    include: {
-      song_credits: {
-        include: {
-          artists: true,
+const listSongs = unstable_cache(
+  async () =>
+    prisma.songs.findMany({
+      include: {
+        song_credits: {
+          include: {
+            artists: true,
+          },
         },
       },
-    },
-    orderBy: {
-      kana: 'asc',
-    },
-  })
+      orderBy: {
+        kana: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default IndexedSongCollection

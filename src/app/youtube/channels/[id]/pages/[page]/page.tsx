@@ -6,12 +6,12 @@ import Title from '@/components/common/Title'
 import VideoCollection from '@/components/youtube/VideoCollection'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
-
-export const revalidate = 43200
 
 interface Props {
   params: Promise<{ id: string; page: string }>
@@ -82,25 +82,31 @@ const YouTubeChannelVideosPage = async ({ params }: Props) => {
   )
 }
 
-const getYouTubeChannel = unstable_cache(async (id: string) =>
-  prisma.youtube_channels.findUnique({
-    where: {
-      id,
-    },
-  })
+const getYouTubeChannel = unstable_cache(
+  async (id: string) =>
+    prisma.youtube_channels.findUnique({
+      where: {
+        id,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
-const listYouTubeVideosByChannel = unstable_cache(async (id: string, offset: number, limit: number) =>
-  prisma.youtube_videos.findMany({
-    where: {
-      channel_id: id,
-    },
-    orderBy: {
-      published_at: 'desc',
-    },
-    skip: offset,
-    take: limit,
-  })
+const listYouTubeVideosByChannel = unstable_cache(
+  async (id: string, offset: number, limit: number) =>
+    prisma.youtube_videos.findMany({
+      where: {
+        channel_id: id,
+      },
+      orderBy: {
+        published_at: 'desc',
+      },
+      skip: offset,
+      take: limit,
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
 export default YouTubeChannelVideosPage

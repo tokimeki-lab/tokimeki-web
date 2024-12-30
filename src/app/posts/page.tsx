@@ -3,6 +3,8 @@ import Container from '@/components/common/Container'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
@@ -50,13 +52,16 @@ const Posts = async () => {
   )
 }
 
-const listPosts = unstable_cache(async () =>
-  prisma.posts.findMany({
-    include: { post_categories: true },
-    skip: 0,
-    take: 10,
-    orderBy: { created_at: 'desc' },
-  })
+const listPosts = unstable_cache(
+  async () =>
+    prisma.posts.findMany({
+      include: { post_categories: true },
+      skip: 0,
+      take: 10,
+      orderBy: { created_at: 'desc' },
+    }),
+  undefined,
+  { tags: [CacheTag('Posts')], revalidate: Config.revalidate }
 )
 
 export default Posts

@@ -2,6 +2,8 @@ import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { getTokisenRegime } from '@/utils/tokisen'
 import { unstable_cache } from 'next/cache'
 
@@ -42,7 +44,9 @@ const listEventCasts = unstable_cache(
       where: {
         event_id: eventId,
       },
-    })
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 const getTokisenColor = (name: string) => {

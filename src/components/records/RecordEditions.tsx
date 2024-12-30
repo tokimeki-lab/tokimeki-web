@@ -2,6 +2,8 @@ import { AppleMusicAlbumPreviewPlayer } from '@/components/songs/AppleMusicAlbum
 import { Record } from '@/db/data'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import RecordEditionDetails from './RecordEditionDetails'
@@ -38,12 +40,16 @@ const RecordEditions = async ({ record }: Props) => {
   )
 }
 
-const listRecordEditionsByRecord = unstable_cache(async (recordId: number) => {
-  const recordEditions = await prisma.record_editions.findMany({
-    where: { record_id: recordId },
-    orderBy: { display_order: 'asc' },
-  })
-  return recordEditions
-})
+const listRecordEditionsByRecord = unstable_cache(
+  async (recordId: number) => {
+    const recordEditions = await prisma.record_editions.findMany({
+      where: { record_id: recordId },
+      orderBy: { display_order: 'asc' },
+    })
+    return recordEditions
+  },
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+)
 
 export default RecordEditions

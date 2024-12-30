@@ -3,6 +3,8 @@ import Tweet from '@/components/tweets/Tweet'
 import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -29,24 +31,27 @@ const EventTweetList = async ({ event, showHeading = false }: Props) => {
   )
 }
 
-const listEventTweets = unstable_cache(async (eventId: number) =>
-  prisma.event_tweets.findMany({
-    include: {
-      tweets: {
-        include: {
-          tweet_authors: true,
+const listEventTweets = unstable_cache(
+  async (eventId: number) =>
+    prisma.event_tweets.findMany({
+      include: {
+        tweets: {
+          include: {
+            tweet_authors: true,
+          },
         },
       },
-    },
-    where: {
-      event_id: eventId,
-    },
-    orderBy: {
-      tweets: {
-        published_at: 'asc',
+      where: {
+        event_id: eventId,
       },
-    },
-  })
+      orderBy: {
+        tweets: {
+          published_at: 'asc',
+        },
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default EventTweetList

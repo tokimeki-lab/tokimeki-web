@@ -8,8 +8,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { ReactNode } from 'react'
 import './globals.css'
 
-export const revalidate = 86400
-
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
 export async function generateMetadata() {

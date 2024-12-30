@@ -1,7 +1,5 @@
 import CalendarPage from './[yyyymm]/page'
 
-export const revalidate = 60
-
 const CalendarBastion = () => {
   const now = new Date()
   const year = now.getFullYear()

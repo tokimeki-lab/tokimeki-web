@@ -5,6 +5,8 @@ import DateNavigation from '@/components/common/DateNavigation'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
@@ -78,19 +80,22 @@ const Articles = async ({ params }: Props) => {
   )
 }
 
-const listArticles = unstable_cache(async (year: number, month: number) =>
-  prisma.articles.findMany({
-    where: {
-      published_timestamp: {
-        gte: Date.UTC(year, month - 1) / 1000 - 60 * 60 * 9,
-        lt: Date.UTC(year, month) / 1000 - 60 * 60 * 9,
+const listArticles = unstable_cache(
+  async (year: number, month: number) =>
+    prisma.articles.findMany({
+      where: {
+        published_timestamp: {
+          gte: Date.UTC(year, month - 1) / 1000 - 60 * 60 * 9,
+          lt: Date.UTC(year, month) / 1000 - 60 * 60 * 9,
+        },
+        status: 'approved',
       },
-      status: 'approved',
-    },
-    orderBy: {
-      published_at: 'asc',
-    },
-  })
+      orderBy: {
+        published_at: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Articles')], revalidate: Config.revalidate }
 )
 
 export default Articles

@@ -7,6 +7,8 @@ import CostumeCollection from '@/components/costumes/CostumeCollection'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Urls } from '@/utils/urls'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
@@ -64,21 +66,24 @@ const Costumes = async () => {
   )
 }
 
-const listCostumes = unstable_cache(async () =>
-  prisma.costumes.findMany({
-    include: {
-      artists: true,
-      costume_images: {
-        take: 1,
-        orderBy: {
-          display_order: 'asc',
+const listCostumes = unstable_cache(
+  async () =>
+    prisma.costumes.findMany({
+      include: {
+        artists: true,
+        costume_images: {
+          take: 1,
+          orderBy: {
+            display_order: 'asc',
+          },
         },
       },
-    },
-    orderBy: {
-      display_order: 'asc',
-    },
-  })
+      orderBy: {
+        display_order: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
 )
 
 export default Costumes

@@ -1,6 +1,8 @@
 import { Artist, Costume, CostumeImage } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import ArtistMetadata from './ArtistMetadata'
 import CostumeCredits from './CostumeCredits'
@@ -28,20 +30,23 @@ const ArtistDetails = async ({ artist }: Props) => {
   )
 }
 
-const listSongCreditsByArtist = unstable_cache(async (artistId: number) =>
-  prisma.song_credits.findMany({
-    include: {
-      songs: true,
-    },
-    where: {
-      artist_id: artistId,
-    },
-    orderBy: {
-      songs: {
-        id: 'asc',
+const listSongCreditsByArtist = unstable_cache(
+  async (artistId: number) =>
+    prisma.song_credits.findMany({
+      include: {
+        songs: true,
       },
-    },
-  })
+      where: {
+        artist_id: artistId,
+      },
+      orderBy: {
+        songs: {
+          id: 'asc',
+        },
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
 )
 
 export default ArtistDetails

@@ -7,6 +7,8 @@ import CostumeYouTubeVideos from '@/components/costumes/CostumeYouTubeVideos'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -76,16 +78,19 @@ const Costume = async ({ params }: Props) => {
   )
 }
 
-const getCostume = unstable_cache(async (id: number) =>
-  prisma.costumes.findUnique({
-    include: {
-      artists: true,
-      events: true,
-    },
-    where: {
-      id,
-    },
-  })
+const getCostume = unstable_cache(
+  async (id: number) =>
+    prisma.costumes.findUnique({
+      include: {
+        artists: true,
+        events: true,
+      },
+      where: {
+        id,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
 )
 
 export default Costume

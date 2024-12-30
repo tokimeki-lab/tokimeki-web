@@ -3,6 +3,8 @@ import Container from '@/components/common/Container'
 import RecordEditions from '@/components/records/RecordEditions'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -52,10 +54,13 @@ const Record = async ({ params }: Props) => {
   )
 }
 
-const getRecordBySlug = unstable_cache(async (slug: string) =>
-  prisma.records.findUnique({
-    where: { slug },
-  })
+const getRecordBySlug = unstable_cache(
+  async (slug: string) =>
+    prisma.records.findUnique({
+      where: { slug },
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default Record

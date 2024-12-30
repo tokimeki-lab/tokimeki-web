@@ -2,6 +2,8 @@ import SectionHeading from '@/components/common/SectionHeading'
 import VideoItem from '@/components/youtube/VideoItem'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -25,22 +27,25 @@ const CostumeYouTubeVideos = async ({ costumeId }: Props) => {
   )
 }
 
-const listYouTubeVideosByCostume = unstable_cache(async (costumeId: number) =>
-  prisma.youtube_videos.findMany({
-    include: {
-      youtube_channels: true,
-    },
-    where: {
-      youtube_video_costumes: {
-        some: {
-          costume_id: costumeId,
+const listYouTubeVideosByCostume = unstable_cache(
+  async (costumeId: number) =>
+    prisma.youtube_videos.findMany({
+      include: {
+        youtube_channels: true,
+      },
+      where: {
+        youtube_video_costumes: {
+          some: {
+            costume_id: costumeId,
+          },
         },
       },
-    },
-    orderBy: {
-      published_at: 'asc',
-    },
-  })
+      orderBy: {
+        published_at: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
 )
 
 export default CostumeYouTubeVideos

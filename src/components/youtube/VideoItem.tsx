@@ -1,5 +1,7 @@
 import { YouTubeVideo } from '@/db/data'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { timestampToJSTString } from '@/utils/datetime'
 import { Urls } from '@/utils/urls'
 import { unstable_cache } from 'next/cache'
@@ -29,15 +31,18 @@ const VideoItem = async ({ video, showChannel }: Props) => {
   )
 }
 
-const getYouTubeChannelTitle = unstable_cache(async (id: string) =>
-  prisma.youtube_channels.findUnique({
-    select: {
-      title: true,
-    },
-    where: {
-      id,
-    },
-  })
+const getYouTubeChannelTitle = unstable_cache(
+  async (id: string) =>
+    prisma.youtube_channels.findUnique({
+      select: {
+        title: true,
+      },
+      where: {
+        id,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
 export default VideoItem

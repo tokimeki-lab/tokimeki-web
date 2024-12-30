@@ -1,4 +1,6 @@
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import ChannelItem from './ChannelItem'
 
@@ -13,12 +15,15 @@ const ChannelCollection = async () => {
   )
 }
 
-const listYouTubeChannels = unstable_cache(async () =>
-  prisma.youtube_channels.findMany({
-    orderBy: {
-      display_order: 'desc',
-    },
-  })
+const listYouTubeChannels = unstable_cache(
+  async () =>
+    prisma.youtube_channels.findMany({
+      orderBy: {
+        display_order: 'desc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
 export default ChannelCollection

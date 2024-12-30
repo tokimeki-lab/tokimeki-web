@@ -1,6 +1,8 @@
 import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SectionHeading from '../common/SectionHeading'
 import EventArticleListItem from './EventArticleListItem'
@@ -29,19 +31,22 @@ const EventArticleList = async ({ event, showHeading = false }: Props) => {
   )
 }
 
-const listEventArticles = unstable_cache(async (eventId: number) =>
-  prisma.articles.findMany({
-    where: {
-      event_articles: {
-        some: {
-          event_id: eventId,
+const listEventArticles = unstable_cache(
+  async (eventId: number) =>
+    prisma.articles.findMany({
+      where: {
+        event_articles: {
+          some: {
+            event_id: eventId,
+          },
         },
       },
-    },
-    orderBy: {
-      published_at: 'asc',
-    },
-  })
+      orderBy: {
+        published_at: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default EventArticleList

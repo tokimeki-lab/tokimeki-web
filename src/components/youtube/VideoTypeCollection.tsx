@@ -1,4 +1,6 @@
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import VideoTypeItem from './VideoTypeItem'
 
@@ -13,12 +15,15 @@ const VideoTypeCollection = async () => {
   )
 }
 
-const listYouTubeVideoTypes = unstable_cache(async () =>
-  prisma.youtube_types.findMany({
-    orderBy: {
-      sort_priority: 'desc',
-    },
-  })
+const listYouTubeVideoTypes = unstable_cache(
+  async () =>
+    prisma.youtube_types.findMany({
+      orderBy: {
+        sort_priority: 'desc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('YouTube')], revalidate: Config.revalidate }
 )
 
 export default VideoTypeCollection

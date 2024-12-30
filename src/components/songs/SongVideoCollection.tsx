@@ -2,6 +2,8 @@ import SectionHeading from '@/components/common/SectionHeading'
 import VideoCollection from '@/components/youtube/VideoCollection'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -25,22 +27,25 @@ const SongVideoCollection = async ({ songId, short }: Props) => {
   }
 }
 
-const listYouTubeVidoesBySong = unstable_cache(async (songId: number, short: boolean, offset?: number, limit?: number) =>
-  prisma.youtube_videos.findMany({
-    where: {
-      youtube_video_songs: {
-        some: {
-          song_id: songId,
+const listYouTubeVidoesBySong = unstable_cache(
+  async (songId: number, short: boolean, offset?: number, limit?: number) =>
+    prisma.youtube_videos.findMany({
+      where: {
+        youtube_video_songs: {
+          some: {
+            song_id: songId,
+          },
         },
+        is_short: short,
       },
-      is_short: short,
-    },
-    orderBy: {
-      published_at: 'desc',
-    },
-    skip: offset,
-    take: limit,
-  })
+      orderBy: {
+        published_at: 'desc',
+      },
+      skip: offset,
+      take: limit,
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default SongVideoCollection

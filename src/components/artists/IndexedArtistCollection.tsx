@@ -2,6 +2,8 @@ import IndexHeading from '@/components/common/IndexHeading'
 import { jpIndexNavItems } from '@/components/common/IndexNav'
 import { Artist } from '@/db/data'
 import prisma from '@/db/prisma'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import ArtistCollection from './ArtistCollection'
 
@@ -33,25 +35,28 @@ const IndexedArtistCollection = async () => {
   )
 }
 
-const listArtists = unstable_cache(async () =>
-  prisma.artists.findMany({
-    include: {
-      song_credits: {
-        include: {
-          songs: true,
-        },
-        where: {
-          songs: {
-            thumbnail_url: {
-              not: null,
+const listArtists = unstable_cache(
+  async () =>
+    prisma.artists.findMany({
+      include: {
+        song_credits: {
+          include: {
+            songs: true,
+          },
+          where: {
+            songs: {
+              thumbnail_url: {
+                not: null,
+              },
             },
           },
+          take: 1,
         },
-        take: 1,
       },
-    },
-    orderBy: [{ kana: 'asc' }],
-  })
+      orderBy: [{ kana: 'asc' }],
+    }),
+  undefined,
+  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
 )
 
 export default IndexedArtistCollection

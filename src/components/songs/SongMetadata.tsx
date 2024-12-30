@@ -2,6 +2,8 @@ import { Song } from '@/db/data'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { dateToYYYYMMDD } from '@/utils/datetime'
 import { unstable_cache } from 'next/cache'
 
@@ -43,20 +45,23 @@ const SongMetadata = async ({ song }: Props) => {
   )
 }
 
-const listRecordEditionsBySong = unstable_cache(async (songId: number) =>
-  prisma.record_editions.findMany({
-    where: {
-      record_tracks: {
-        some: {
-          song_id: songId,
+const listRecordEditionsBySong = unstable_cache(
+  async (songId: number) =>
+    prisma.record_editions.findMany({
+      where: {
+        record_tracks: {
+          some: {
+            song_id: songId,
+          },
         },
       },
-    },
-    include: { records: true },
-    orderBy: {
-      release_date: 'asc',
-    },
-  })
+      include: { records: true },
+      orderBy: {
+        release_date: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
 )
 
 export default SongMetadata

@@ -11,6 +11,8 @@ import EventTweetList from '@/components/events/EventTweetList'
 import EventYouTubeVideoList from '@/components/events/EventYouTubeVideoList'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -77,12 +79,15 @@ const Event = async ({ params }: Props) => {
   )
 }
 
-const getEvent = unstable_cache(async (id: number) =>
-  prisma.events.findUnique({
-    where: {
-      id,
-    },
-  })
+const getEvent = unstable_cache(
+  async (id: number) =>
+    prisma.events.findUnique({
+      where: {
+        id,
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
 )
 
 export default Event

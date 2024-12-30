@@ -4,6 +4,8 @@ import Container from '@/components/common/Container'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -59,19 +61,22 @@ const Artist = async ({ params }: Props) => {
   )
 }
 
-const getArtist = unstable_cache(async (id: number) =>
-  prisma.artists.findUnique({
-    include: {
-      costumes: {
-        include: {
-          costume_images: {
-            take: 1,
+const getArtist = unstable_cache(
+  async (id: number) =>
+    prisma.artists.findUnique({
+      include: {
+        costumes: {
+          include: {
+            costume_images: {
+              take: 1,
+            },
           },
         },
       },
-    },
-    where: { id },
-  })
+      where: { id },
+    }),
+  undefined,
+  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
 )
 
 export default Artist

@@ -2,6 +2,8 @@ import SectionHeading from '@/components/common/SectionHeading'
 import Tweet from '@/components/tweets/Tweet'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
+import { CacheTag } from '@/lib/cache'
+import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -25,22 +27,25 @@ const CostumeTweets = async ({ costumeId }: Props) => {
   )
 }
 
-const listTweetsByCostumeId = unstable_cache(async (costumeId: number) =>
-  prisma.tweets.findMany({
-    include: {
-      tweet_authors: true,
-    },
-    where: {
-      costume_tweets: {
-        some: {
-          costume_id: costumeId,
+const listTweetsByCostumeId = unstable_cache(
+  async (costumeId: number) =>
+    prisma.tweets.findMany({
+      include: {
+        tweet_authors: true,
+      },
+      where: {
+        costume_tweets: {
+          some: {
+            costume_id: costumeId,
+          },
         },
       },
-    },
-    orderBy: {
-      published_at: 'desc',
-    },
-  })
+      orderBy: {
+        published_at: 'desc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
 )
 
 export default CostumeTweets
