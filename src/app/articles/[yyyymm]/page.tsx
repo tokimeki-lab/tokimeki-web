@@ -13,6 +13,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
 
+export const revalidate = 86400
+
 interface Props {
   params: Promise<{ yyyymm: string }>
 }
@@ -57,7 +59,8 @@ const Articles = async ({ params }: Props) => {
   const year = Math.floor(yyyymm / 100)
   const month = yyyymm % 100
   const now = new Date()
-  const untilYYYYMM = (now.getFullYear() + 2) * 100 + now.getMonth()
+  const untilYYYYMM = now.getFullYear() * 100 + (now.getMonth() + 2)
+  console.log('untilYYYYMM', untilYYYYMM)
   const isValidDate = 201504 <= yyyymm && yyyymm <= untilYYYYMM && 1 <= month && month <= 12
   if (!isValidDate) {
     notFound()
