@@ -5,7 +5,6 @@ import Link from 'next/link'
 
 const Footer = async () => {
   const { common } = await getDictionary()
-  const isoDate = new Date().toISOString()
   const { credits: t } = await getDictionary()
   return (
     <footer className="grid gap-4 p-32 text-center">
@@ -35,7 +34,9 @@ const Footer = async () => {
           ))}
         </div>
       )}
-      <div className="text-xs text-gray-200">generated at {isoDate}</div>
+      <Link href="https://manage.tokiken.com" className="text-xs text-gray-200">
+        Admin
+      </Link>
     </footer>
   )
 }

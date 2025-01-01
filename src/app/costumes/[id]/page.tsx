@@ -42,10 +42,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
   }
 }
 
-export const generateStaticParams = async () => {
-  return []
-}
-
 const Costume = async ({ params }: Props) => {
   const p = await params
   const id = parseInt(p.id)

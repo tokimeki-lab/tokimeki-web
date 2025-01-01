@@ -60,7 +60,6 @@ const Articles = async ({ params }: Props) => {
   const month = yyyymm % 100
   const now = new Date()
   const untilYYYYMM = now.getFullYear() * 100 + (now.getMonth() + 2)
-  console.log('untilYYYYMM', untilYYYYMM)
   const isValidDate = 201504 <= yyyymm && yyyymm <= untilYYYYMM && 1 <= month && month <= 12
   if (!isValidDate) {
     notFound()
