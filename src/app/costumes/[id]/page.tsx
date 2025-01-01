@@ -12,6 +12,7 @@ import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface Props {
   params: Promise<{ id: string }>
@@ -65,14 +66,20 @@ const Costume = async ({ params }: Props) => {
             <CostumeMetadata costume={costume} />
           </div>
           <div>
-            <CostumeDetailImagesWrapper costume={costume} />
+            <Suspense fallback={<CostumeDetailImagesWrapper />}>
+              <CostumeDetailImagesWrapper costume={costume} />
+            </Suspense>
           </div>
           <div className="hidden md:block">
             <CostumeMetadata costume={costume} />
           </div>
         </div>
-        <CostumeTweets costumeId={costume.id} />
-        <CostumeYouTubeVideos costumeId={costume.id} />
+        <Suspense fallback={<CostumeTweets />}>
+          <CostumeTweets costumeId={costume.id} />
+        </Suspense>
+        <Suspense fallback={<CostumeYouTubeVideos />}>
+          <CostumeYouTubeVideos costumeId={costume.id} />
+        </Suspense>
       </div>
     </Container>
   )

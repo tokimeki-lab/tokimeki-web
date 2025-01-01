@@ -1,9 +1,11 @@
 import { TweetAuthor, Tweet as TweetType } from '@/db/data'
 import { timestampToJSTString } from '@/utils/datetime'
+import { Urls } from '@/utils/urls'
 import Link from 'next/link'
+import Skelton from '../common/Skeleton'
 
 interface Props {
-  status: TweetType & { tweet_authors: TweetAuthor }
+  status?: TweetType & { tweet_authors: TweetAuthor }
 }
 
 const Tweet = ({ status }: Props) => {
@@ -13,39 +15,47 @@ const Tweet = ({ status }: Props) => {
         <div className="flex gap-2 items-center">
           <div className="shrink-0">
             <Link
-              href={`https://twitter.com/${status.screen_name}/status/${status.id}`}
+              href={status ? `https://twitter.com/${status.screen_name}/status/${status.id}` : '#'}
               rel="noopener noreferrer"
               className="font-bold text-sm"
               target="_blank">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={status.tweet_authors.icon_url!} alt={status.tweet_authors.user_name} className="w-10 aspect-square rounded-full" />
+              <img
+                src={status ? status.tweet_authors.icon_url! : Urls.blankImage}
+                alt={status ? status.tweet_authors.user_name : 'loading'}
+                className="w-10 aspect-square rounded-full"
+              />
             </Link>
           </div>
           <div className="flex flex-col overflow-hidden">
             <div className="overflow-hidden text-left text-nowrap text-ellipsis">
               <Link
-                href={`https://twitter.com/${status.screen_name}/status/${status.id}`}
+                href={status ? `https://twitter.com/${status.screen_name}/status/${status.id}` : '#'}
                 rel="noopener noreferrer"
                 className="font-bold text-sm"
                 target="_blank">
-                {status.tweet_authors.user_name}
+                {status ? status.tweet_authors.user_name : <Skelton className="w-[8em]" />}
               </Link>
             </div>
             <Link
-              href={`https://twitter.com/${status.screen_name}/status/${status.id}`}
+              href={status ? `https://twitter.com/${status.screen_name}/status/${status.id}` : '#'}
               rel="noopener noreferrer"
               className="text-gray-500 text-sm"
               target="_blank">
-              @{status.screen_name}
+              {status ? `@${status.screen_name}` : <Skelton />}
             </Link>
           </div>
         </div>
-        <pre className="pt-2 text-xs text-left whitespace-pre-wrap">{status.text}</pre>
+        <pre className="pt-2 text-xs text-left whitespace-pre-wrap">{status ? status.text : <Skelton lines={8} />}</pre>
       </div>
       <div>
-        {status.image_urls && (
+        {status?.image_urls && (
           <div className="w-full">
-            <Link href={`https://twitter.com/${status.screen_name}/status/${status.id}`} rel="noopener noreferrer" prefetch={false} target="_blank">
+            <Link
+              href={status ? `https://twitter.com/${status.screen_name}/status/${status.id}` : '#'}
+              rel="noopener noreferrer"
+              prefetch={false}
+              target="_blank">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={status.image_urls.split(',')[0]}
@@ -58,12 +68,12 @@ const Tweet = ({ status }: Props) => {
         )}
         <div className="flex text-gray-500 text-sm">
           <Link
-            href={`https://twitter.com/${status.screen_name}/status/${status.id}`}
+            href={status ? `https://twitter.com/${status.screen_name}/status/${status.id}` : '#'}
             rel="noopener noreferrer"
             prefetch={false}
             target="_blank"
             className="hover:underline">
-            {timestampToJSTString(status.published_timestamp)}
+            {status ? timestampToJSTString(status.published_timestamp) : <Skelton className="w-[10em]" />}
           </Link>
         </div>
       </div>

@@ -7,19 +7,21 @@ import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
-  costumeId: number
+  costumeId?: number
 }
 
 const CostumeTweets = async ({ costumeId }: Props) => {
-  const tweets = await listTweetsByCostumeId(costumeId)
   const { costumes: t } = await getDictionary()
-  return tweets.length > 0 ? (
+  const tweets = costumeId ? await listTweetsByCostumeId(costumeId) : []
+  return !costumeId || tweets.length > 0 ? (
     <div>
       <SectionHeading title={`💬 ${t.related_tweets}`} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {tweets.map((tweet) => {
-          return <Tweet key={tweet.id} status={tweet} />
-        })}
+        {costumeId
+          ? tweets.map((tweet) => {
+              return <Tweet key={tweet.id} status={tweet} />
+            })
+          : Array.from({ length: 4 }).map((_, i) => <Tweet key={i} />)}
       </div>
     </div>
   ) : (

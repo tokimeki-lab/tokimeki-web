@@ -7,19 +7,23 @@ import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
-  costumeId: number
+  costumeId?: number
 }
 
 const CostumeYouTubeVideos = async ({ costumeId }: Props) => {
-  const videos = await listYouTubeVideosByCostume(costumeId)
+  const videos = costumeId ? await listYouTubeVideosByCostume(costumeId) : []
   const { costumes: t } = await getDictionary()
-  return videos.length > 0 ? (
+  return !costumeId || videos.length > 0 ? (
     <div>
       <SectionHeading title={`🎬 ${t.related_videos}`} />
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 [&_]:text-left">
-        {videos.map((video) => {
-          return <VideoItem key={video.id} video={video} showChannel={true} />
-        })}
+        {costumeId
+          ? videos.map((video) => {
+              return <VideoItem key={video.id} video={video} showChannel={true} />
+            })
+          : Array.from({ length: 12 }).map((_, i) => {
+              return <VideoItem key={i} video={undefined} showChannel={true} />
+            })}
       </div>
     </div>
   ) : (

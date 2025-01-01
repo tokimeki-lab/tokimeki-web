@@ -6,12 +6,12 @@ import { unstable_cache } from 'next/cache'
 import CostumeDetailImages from './CostumeDetailImages'
 
 interface Props {
-  costume: Costume
+  costume?: Costume
 }
 
 const CostumeDetailImagesWrapper = async ({ costume }: Props) => {
-  const images = await listCostumeImages(costume.id)
-  return <CostumeDetailImages images={images} />
+  const images = costume ? await listCostumeImages(costume.id) : []
+  return costume ? <CostumeDetailImages images={images} /> : <CostumeDetailImages />
 }
 
 const listCostumeImages = unstable_cache(
