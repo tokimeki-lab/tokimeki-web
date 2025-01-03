@@ -52,23 +52,23 @@ const listEventCasts = unstable_cache(
 const getTokisenColor = (name: string) => {
   switch (name) {
     case '辻野かなみ':
-      return 'bg-blue'
+      return 'bg-tokimekiblue'
     case '杏ジュリア':
     case '小高サラ':
-      return 'bg-purple'
+      return 'bg-tokimekipurple'
     case '坂井仁香':
-      return 'bg-red'
+      return 'bg-tokimekired'
     case '小泉遥香':
-      return 'bg-pink'
+      return 'bg-tokimekipink'
     case '菅田愛貴':
     case '藤本ばんび':
     case '永坂真心':
-      return 'bg-lemon'
+      return 'bg-tokimekilemon'
     case '吉川ひより':
-      return 'bg-green'
+      return 'bg-tokimekigreen'
     case 'パブりん':
     default:
-      return 'bg-orange'
+      return 'bg-tokimekiorange'
   }
 }
 
