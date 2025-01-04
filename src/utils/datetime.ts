@@ -13,3 +13,7 @@ export const numToMMDD = (month: number, day: number): string => {
 export const timestampToJSTString = (utcTimestampSec: number): string => {
   return new Date(utcTimestampSec * 1000 + 9 * 60 * 60 * 1000).toISOString().replace('T', ' ').replace('Z', '').slice(0, 19)
 }
+
+export const ISO8601toJPDateTimeStr = (date: Date): string => {
+  return timestampToJSTString(new Date(date).getTime() / 1000)
+}

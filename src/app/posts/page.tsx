@@ -5,6 +5,7 @@ import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
 import Config from '@/lib/config'
+import { ISO8601toJPDateTimeStr } from '@/utils/datetime'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
@@ -38,7 +39,7 @@ const Posts = async () => {
         {posts.map((post) => (
           <div key={post.id} className="grid gap-1">
             <div className="flex gap-2">
-              <div className="text-xs text-gray-500">{post.created_at}</div>
+              <div className="text-xs text-gray-500">{ISO8601toJPDateTimeStr(post.created_at)}</div>
               <div className="text-xs text-gray-500">{post.post_categories.name}</div>
             </div>
             <div className="font-semibold">

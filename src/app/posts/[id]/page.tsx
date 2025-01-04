@@ -7,6 +7,7 @@ import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
 import Config from '@/lib/config'
+import { ISO8601toJPDateTimeStr } from '@/utils/datetime'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -59,8 +60,8 @@ const Post = async ({ params }: Props) => {
       <Breadcrumbs items={[{ name: t.heading, href: '/posts' }]} />
       <Title title={post.title || ''} />
       <div className="flex gap-2">
-        <Chip text={post.created_at} icon="✏️" />
-        <Chip text={post.updated_at} icon="♻️" />
+        <Chip text={ISO8601toJPDateTimeStr(post.created_at)} icon="✏️" />
+        <Chip text={ISO8601toJPDateTimeStr(post.updated_at)} icon="♻️" />
       </div>
       <div className="grid gap-4 pb-8 text-left">
         <Markdown body={post.body || ''} />

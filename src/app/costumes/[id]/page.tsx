@@ -28,7 +28,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
   if (!costume) {
     return null
   } else {
-    const { records: t } = await getDictionary()
+    const { costumes: t } = await getDictionary()
     const title = `${isDefaultLocale ? costume.name : costume.name_en} - ${t.title}`
     const description = t.desc
     return {

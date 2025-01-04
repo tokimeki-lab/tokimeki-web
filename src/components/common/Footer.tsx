@@ -34,9 +34,11 @@ const Footer = async () => {
           ))}
         </div>
       )}
-      <Link href="https://manage.tokiken.com" className="text-xs text-gray-200">
-        Admin
-      </Link>
+      <div>
+        <Link href="https://manage.tokiken.com" className="text-xs text-gray-200">
+          Admin
+        </Link>
+      </div>
     </footer>
   )
 }
