@@ -1,5 +1,6 @@
 'use client'
 
+import AdminLink from '@/components/common/AdminLink'
 import { Event, EventPlace, EventType } from '@/db/data'
 import { useDictionary } from '@/i18n/hook'
 import Link from 'next/link'
@@ -35,6 +36,7 @@ const CalendarCellEvent = ({ event }: Props) => {
     <div className="pl-2 inline-block text-left">
       {event.start && <span className="min-w-12 pr-2 inline-block">{event.start}</span>}
       <span className="text-xs bg-black text-white font-semibold py-[2px] px-1 mr-2">{typeLabel}</span>
+      <AdminLink path={`/events/${event.id}`} />
       <Link href={`/events/${event.id}`} prefetch={false} className="pr-2 text-primary font-semibold">
         {event.title}
       </Link>

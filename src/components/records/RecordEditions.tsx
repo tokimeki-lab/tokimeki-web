@@ -6,6 +6,7 @@ import { CacheTag } from '@/lib/cache'
 import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
+import AdminLink from '../common/AdminLink'
 import RecordEditionDetails from './RecordEditionDetails'
 
 interface Props {
@@ -19,6 +20,7 @@ const RecordEditions = async ({ record }: Props) => {
       <div className="grid gap-1">
         {record.product_url ? (
           <div>
+            <AdminLink path={`/records/${record.id}`} />
             <Link href={record.product_url} target="_blank" className="inline-block text-lg text-primary font-bold">
               {isDefaultLocale ? record.name : record.name_en}
             </Link>

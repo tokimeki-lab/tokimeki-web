@@ -1,3 +1,4 @@
+import AdminLink from '@/components/common/AdminLink'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
 import Title from '@/components/common/Title'
@@ -64,7 +65,10 @@ const Event = async ({ params }: Props) => {
   return (
     <Container className="max-w-screen-lg px-2 md:px-2 py-4">
       <Breadcrumbs items={[{ name: t.heading, href: `/calendar/${yyyymm}` }]} />
-      <Title title={event.title || ''} />
+      <div className="flex items-center">
+        <AdminLink path={`/events/${event.id}`} />
+        <Title title={event.title || ''} />
+      </div>
       <EventInfo event={event} />
       <EventNote event={event} />
       <div className="grid gap-8 py-8">

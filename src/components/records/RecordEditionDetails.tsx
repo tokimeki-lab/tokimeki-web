@@ -4,6 +4,7 @@ import { isDefaultLocale } from '@/i18n/config'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
 import { FaAmazon } from 'react-icons/fa6'
+import AdminLink from '../common/AdminLink'
 import AlbumCover from './AlbumCover'
 import RecordEditionTracks from './RecordEditionTracks'
 
@@ -37,7 +38,10 @@ const RecordEditionDetails = async ({ type, edition }: Props) => {
             <div>
               <span className="bg-black py-1 px-2 text-white text-xs">{type}</span>
             </div>
-            <div className="font-semibold">{isDefaultLocale ? name : name_en}</div>
+            <div className="font-semibold">
+              <AdminLink path={`/records/${edition.record_id}/editions/${edition.id}`} />
+              {isDefaultLocale ? name : name_en}
+            </div>
             <div className="flex flex-wrap gap-2 [&_]:text-gray-500 [&_]:text-xs">
               <div>{catalog_number}</div>
               <div>{release_date}</div>

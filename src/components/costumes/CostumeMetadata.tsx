@@ -3,6 +3,7 @@ import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
+import AdminLink from '../common/AdminLink'
 
 interface Props {
   costume: Costume & { events: Event | null } & { artists: Artist | null }
@@ -17,7 +18,10 @@ const CostumeMetadata = async ({ costume }: Props) => {
         <span className="pr-1">{t.costume_name_type}:</span>
         <span> {is_official_name ? t.official : t.unofficial}</span>
       </div>
-      <h2 className="font-bold text-lg text-primary">{isDefaultLocale ? name : name_en}</h2>
+      <h2 className="font-bold text-lg text-primary">
+        <AdminLink path={`/costumes/${costume.id}`} />
+        {isDefaultLocale ? name : name_en}
+      </h2>
       {!isDefaultLocale && <div>{name}</div>}
       <div>
         <span className="pr-1">{t.designer}:</span>

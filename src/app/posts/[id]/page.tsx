@@ -1,3 +1,4 @@
+import AdminLink from '@/components/common/AdminLink'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Chip from '@/components/common/Chip'
 import Container from '@/components/common/Container'
@@ -58,7 +59,10 @@ const Post = async ({ params }: Props) => {
   return (
     <Container className="max-w-screen-lg px-2 md:px-2 py-4">
       <Breadcrumbs items={[{ name: t.heading, href: '/posts' }]} />
-      <Title title={post.title || ''} />
+      <div className="flex items-center">
+        <AdminLink path={`/posts/${post.id}`} />
+        <Title title={post.title || ''} />
+      </div>
       <div className="flex gap-2">
         <Chip text={ISO8601toJPDateTimeStr(post.created_at)} icon="✏️" />
         <Chip text={ISO8601toJPDateTimeStr(post.updated_at)} icon="♻️" />

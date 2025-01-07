@@ -2,6 +2,7 @@ import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Urls } from '@/utils/urls'
 import Link from 'next/link'
+import AdminModeSwitch from './AdminModeSwitch'
 
 const Footer = async () => {
   const { common } = await getDictionary()
@@ -34,7 +35,8 @@ const Footer = async () => {
           ))}
         </div>
       )}
-      <div>
+      <div className="flex gap-1 justify-center">
+        <AdminModeSwitch />
         <Link href="https://manage.tokiken.com" className="text-xs text-gray-200">
           Admin
         </Link>

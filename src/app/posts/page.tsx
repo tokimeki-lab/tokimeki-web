@@ -1,3 +1,4 @@
+import AdminLink from '@/components/common/AdminLink'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
 import Title from '@/components/common/Title'
@@ -43,6 +44,7 @@ const Posts = async () => {
               <div className="text-xs text-gray-500">{post.post_categories.name}</div>
             </div>
             <div className="font-semibold">
+              <AdminLink path={`/posts/${post.id}`} />
               <Link href={`/posts/${post.id}`}>{post.title}</Link>
             </div>
             {post.description && <div className="text-xs text-gray-500">{post.description}</div>}

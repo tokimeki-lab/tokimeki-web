@@ -6,6 +6,7 @@ import { CacheTag } from '@/lib/cache'
 import Config from '@/lib/config'
 import { dateToYYYYMMDD } from '@/utils/datetime'
 import { unstable_cache } from 'next/cache'
+import AdminLink from '../common/AdminLink'
 
 interface Props {
   song: Song
@@ -19,7 +20,10 @@ const SongMetadata = async ({ song }: Props) => {
     <div className="py-4">
       <div className="text-xs text-gray-500">{kana}</div>
       {!isDefaultLocale && <div className="text-xs text-gray-500">{title}</div>}
-      <h2 className="font-bold text-lg mb-2">{isDefaultLocale ? title : title_en}</h2>
+      <h2 className="font-bold text-lg mb-2">
+        <AdminLink path={`/songs/${song.id}`} />
+        {isDefaultLocale ? title : title_en}
+      </h2>
       {firstAppearanceEdition && (
         <div className="text-xs text-gray-500">
           {t.release_date}: {dateToYYYYMMDD(new Date(firstAppearanceEdition.release_date))}

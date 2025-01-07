@@ -6,6 +6,7 @@ import { timestampToJSTString } from '@/utils/datetime'
 import { Urls } from '@/utils/urls'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
+import AdminLink from '../common/AdminLink'
 import Skelton from '../common/Skeleton'
 
 interface Props {
@@ -16,23 +17,26 @@ interface Props {
 const VideoItem = async ({ video, showChannel }: Props) => {
   const channelTitle = showChannel && video ? (await getYouTubeChannelTitle(video.channel_id))?.title : undefined
   return (
-    <Link href={video ? Urls.youtubeVideo(video.id) : '#'} target="_blank" className="hover:bg-gray-200 rounded-lg">
-      <div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={video ? Urls.youtubeThumbnail(video.id) || Urls.noImage : Urls.blankImage}
-          alt={video ? video.title : 'loading...'}
-          className={`w-full aspect-video object-cover rounded-lg ${!video && 'opacity-10 animate-pulse'}`}
-        />
-      </div>
-      <div className="p-1 grid gap-1">
-        <div className="text-xs text-gray-500">
-          {video?.published_timestamp ? timestampToJSTString(video.published_timestamp) : video?.published_at || <Skelton className="w-[19em]" />}
+    <div>
+      {video && <AdminLink path={`/youtube/${video.id}`} className="absolute z-10 text-xl bg-white w-8 h-8 text-center rounded opacity-80" />}
+      <Link href={video ? Urls.youtubeVideo(video.id) : '#'} target="_blank" className="hover:bg-gray-200 rounded-lg">
+        <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={video ? Urls.youtubeThumbnail(video.id) || Urls.noImage : Urls.blankImage}
+            alt={video ? video.title : 'loading...'}
+            className={`w-full aspect-video object-cover rounded-lg ${!video && 'opacity-10 animate-pulse'}`}
+          />
         </div>
-        <div className="text-xs">{video ? video.title : <Skelton className="w-[20em]" />} </div>
-        {channelTitle && <div className="text-xs text-gray-500">{channelTitle}</div>}
-      </div>
-    </Link>
+        <div className="p-1 grid gap-1">
+          <div className="text-xs text-gray-500">
+            {video?.published_timestamp ? timestampToJSTString(video.published_timestamp) : video?.published_at || <Skelton className="w-[19em]" />}
+          </div>
+          <div className="text-xs">{video ? video.title : <Skelton className="w-[20em]" />} </div>
+          {channelTitle && <div className="text-xs text-gray-500">{channelTitle}</div>}
+        </div>
+      </Link>
+    </div>
   )
 }
 

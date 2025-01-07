@@ -3,6 +3,7 @@ import { isDefaultLocale } from '@/i18n/config'
 import Link from 'next/link'
 import { FaInstagram, FaTiktok, FaTwitter, FaWikipediaW } from 'react-icons/fa'
 import { FaEarthAsia } from 'react-icons/fa6'
+import AdminLink from '../common/AdminLink'
 
 interface Props {
   artist: Artist
@@ -14,7 +15,10 @@ const ArtistMetadata = ({ artist }: Props) => {
     <div className="py-4">
       <div className="text-sm text-gray-500">{kana}</div>
       {!isDefaultLocale && <div className="text-xs text-gray-300">{name}</div>}
-      <h2 className="font-bold mb-2">{isDefaultLocale ? name : name_en}</h2>
+      <h2 className="font-bold mb-2">
+        <AdminLink path={`/artists/${artist.id}`} />
+        {isDefaultLocale ? name : name_en}
+      </h2>
       <div className="[&_]:inline-block">
         {wikipedia_slug && (
           <Link target="_blank" href={`https://ja.wikipedia.org/wiki/${wikipedia_slug}`} className="flex text-sm text-gray-500">

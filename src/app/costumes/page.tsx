@@ -14,8 +14,9 @@ import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const title = '超ときめき♡衣装データベース'
-  const description = '超ときめき♡宣伝部の衣装のデータ'
+  const { costumes: t } = await getDictionary()
+  const title = t.title
+  const description = t.desc
   return {
     title,
     description,
