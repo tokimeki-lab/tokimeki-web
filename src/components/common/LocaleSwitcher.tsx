@@ -8,7 +8,8 @@ export default function LocaleSwitcher() {
     const { value } = e.target
     if (locales.includes(value as Locale) && value !== currentLocale) {
       const path = window.location.pathname
-      const targetUrl = value === 'ja' ? `https://tokiken.com${path}` : `https://${value}.tokiken.com${path}`
+      const encodedValue = encodeURIComponent(value)
+      const targetUrl = encodedValue === 'ja' ? `https://tokiken.com${path}` : `https://${encodedValue}.tokiken.com${path}`
       window.location.href = targetUrl
     }
   }
