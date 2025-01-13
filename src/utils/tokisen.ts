@@ -12,6 +12,24 @@ type TokisenMember =
   | '菅田愛貴'
   | 'パブりん'
 
+export const tokisenArtistIds = [
+  { name: '辻野かなみ', id: 205 },
+  { name: '杏ジュリア', id: 206 },
+  { name: '坂井仁香', id: 207 },
+  { name: '小泉遥香', id: 204 },
+  { name: '菅田愛貴', id: 208 },
+  { name: '吉川ひより', id: 197 },
+  { name: '永坂真心', id: 209 },
+  { name: '小高サラ', id: 211 },
+  { name: '藤本ばんび', id: 210 },
+  { name: 'パブりん', id: 212 },
+]
+
+export const getArtistId = (name: string): number => {
+  const artist = tokisenArtistIds.find((a) => a.name === name)
+  return artist ? artist.id : 0
+}
+
 interface Regime {
   startDate: string
   members: { name: TokisenMember; name_en: string; no: number; color: string; colorId: string }[]

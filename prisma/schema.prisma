@@ -121,6 +121,17 @@ model event_articles {
   @@index([event_id], map: "event_id")
 }
 
+model event_artists {
+  id         Int      @id @default(autoincrement())
+  event_id   Int
+  artist_id  Int
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+
+  @@index([artist_id], map: "artist_id")
+  @@index([event_id], map: "event_id")
+}
+
 model event_casts {
   id       String @id @db.VarChar(255)
   event_id Int
@@ -387,8 +398,8 @@ model tweets {
   tweet_authors       tweet_authors    @relation(fields: [screen_name], references: [screen_name], onDelete: NoAction, onUpdate: NoAction, map: "tweets_ibfk_1")
 
   @@index([published_at], map: "published_at")
-  @@index([screen_name], map: "screen_name")
   @@index([published_timestamp], map: "published_timestamp")
+  @@index([screen_name], map: "screen_name")
 }
 
 model youtube_channels {
@@ -451,8 +462,8 @@ model youtube_videos {
 
   @@index([channel_id], map: "channel_id")
   @@index([published_at], map: "published_at")
-  @@index([type_id], map: "type_id")
   @@index([published_timestamp], map: "published_timestamp")
+  @@index([type_id], map: "type_id")
 }
 
 enum events_type {
@@ -463,13 +474,6 @@ enum events_type {
   OTHER
 }
 
-enum records_type {
-  SINGLE
-  DIGITAL
-  ALBUM
-  MINI_ALBUM
-}
-
 enum song_credits_role {
   Vocal
   Music
@@ -477,6 +481,13 @@ enum song_credits_role {
   Lyrics
   Produce
   Dance
+}
+
+enum records_type {
+  SINGLE
+  DIGITAL
+  ALBUM
+  MINI_ALBUM
 }
 
 enum record_tracks_type {
@@ -499,6 +510,12 @@ enum blogs_author {
   banbi
 }
 
+enum song_credits_source {
+  BOOKLET
+  JASRAC
+  EXTERNAL
+}
+
 enum annual_events_category {
   ANNIVERSARY
   BIRTHDAY
@@ -510,20 +527,14 @@ enum synced_events_status {
   rejected
 }
 
-enum song_credits_source {
-  BOOKLET
-  JASRAC
-  EXTERNAL
+enum articles_status {
+  approved
+  pending
+  rejected
 }
 
 enum costumes_type {
   tokisen
   chotokisen
   birthday
-}
-
-enum articles_status {
-  approved
-  pending
-  rejected
 }
