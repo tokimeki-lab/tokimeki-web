@@ -1,6 +1,5 @@
 import prisma from '@/db/prisma'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import RecordEditionItem from './RecordEditionItem'
 
@@ -35,7 +34,7 @@ const listRecordEditionsBySong = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default RecordEditionCollection

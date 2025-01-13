@@ -4,7 +4,6 @@ import RecordEditions from '@/components/records/RecordEditions'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -60,7 +59,7 @@ const getRecordBySlug = unstable_cache(
       where: { slug },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default Record

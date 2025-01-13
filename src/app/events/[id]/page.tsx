@@ -13,7 +13,6 @@ import EventYouTubeVideoList from '@/components/events/EventYouTubeVideoList'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -91,7 +90,7 @@ const getEvent = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Events')] }
 )
 
 export default Event

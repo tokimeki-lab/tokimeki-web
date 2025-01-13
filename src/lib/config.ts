@@ -1,6 +1,6 @@
 const Config = {
   articlesPerPage: 10,
-  revalidate: 172800,
+  revalidate: 604800,
 }
 
 export default Config

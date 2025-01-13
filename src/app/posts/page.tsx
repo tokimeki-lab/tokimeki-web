@@ -5,7 +5,6 @@ import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { ISO8601toJPDateTimeStr } from '@/utils/datetime'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
@@ -64,7 +63,7 @@ const listPosts = unstable_cache(
       orderBy: { created_at: 'desc' },
     }),
   undefined,
-  { tags: [CacheTag('Posts')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Posts')] }
 )
 
 export default Posts

@@ -3,7 +3,6 @@ import { jpIndexNavItems } from '@/components/common/IndexNav'
 import { Artist } from '@/db/data'
 import prisma from '@/db/prisma'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import ArtistCollection from './ArtistCollection'
 
@@ -56,7 +55,7 @@ const listArtists = unstable_cache(
       orderBy: [{ kana: 'asc' }],
     }),
   undefined,
-  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Artists')] }
 )
 
 export default IndexedArtistCollection

@@ -3,7 +3,6 @@ import VideoCollection from '@/components/youtube/VideoCollection'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -45,7 +44,7 @@ const listYouTubeVidoesBySong = unstable_cache(
       take: limit,
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default SongVideoCollection

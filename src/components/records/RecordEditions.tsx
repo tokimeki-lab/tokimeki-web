@@ -3,7 +3,6 @@ import { Record } from '@/db/data'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import AdminLink from '../common/AdminLink'
@@ -51,7 +50,7 @@ const listRecordEditionsByRecord = unstable_cache(
     return recordEditions
   },
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default RecordEditions

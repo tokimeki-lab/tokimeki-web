@@ -3,7 +3,6 @@ import { jpIndexNavItems } from '@/components/common/IndexNav'
 import { Artist, Song, SongCredit } from '@/db/data'
 import prisma from '@/db/prisma'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SongCollection from './SongCollection'
 
@@ -49,7 +48,7 @@ const listSongs = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default IndexedSongCollection

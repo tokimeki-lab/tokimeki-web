@@ -5,7 +5,6 @@ import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -76,7 +75,7 @@ const getArtist = unstable_cache(
       where: { id },
     }),
   undefined,
-  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Artists')] }
 )
 
 export default Artist

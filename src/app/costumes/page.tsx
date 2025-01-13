@@ -8,7 +8,6 @@ import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { Urls } from '@/utils/urls'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
@@ -84,7 +83,7 @@ const listCostumes = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Costumes')] }
 )
 
 export default Costumes

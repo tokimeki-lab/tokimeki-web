@@ -3,7 +3,6 @@ import VideoItem from '@/components/youtube/VideoItem'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 
 interface Props {
@@ -49,7 +48,7 @@ const listYouTubeVideosByCostume = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Costumes')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Costumes')] }
 )
 
 export default CostumeYouTubeVideos

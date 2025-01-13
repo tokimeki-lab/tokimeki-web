@@ -2,7 +2,6 @@ import SectionHeading from '@/components/common/SectionHeading'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import SongCreditItem from './SongCreditItem'
 
@@ -46,7 +45,7 @@ const listSongCreditsBySong = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default SongCredits

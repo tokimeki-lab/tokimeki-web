@@ -2,7 +2,6 @@ import { Artist, Costume, CostumeImage } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import ArtistMetadata from './ArtistMetadata'
 import CostumeCredits from './CostumeCredits'
@@ -46,7 +45,7 @@ const listSongCreditsByArtist = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Artists')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Artists')] }
 )
 
 export default ArtistDetails

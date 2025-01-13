@@ -6,14 +6,11 @@ import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { format } from 'util'
-
-export const revalidate = 86400
 
 interface Props {
   params: Promise<{ yyyymm: string }>
@@ -97,7 +94,7 @@ const listArticles = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Articles')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Articles')] }
 )
 
 export default Articles

@@ -3,7 +3,6 @@ import IndexNav, { yearsIndexNavItems } from '@/components/common/IndexNav'
 import { Record, RecordEdition } from '@/db/data'
 import prisma from '@/db/prisma'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { dateToYYYYMMDD } from '@/utils/datetime'
 import { unstable_cache } from 'next/cache'
 import RecordEditionItem from './RecordEditionItem'
@@ -48,7 +47,7 @@ const listRecordEditions = unstable_cache(
       orderBy: { release_date: 'asc' },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default IndexedRecordEditions

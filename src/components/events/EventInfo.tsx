@@ -2,7 +2,6 @@ import { Event } from '@/db/data'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import EventCastList from './EventCastList'
@@ -64,7 +63,7 @@ const getEventPlace = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Events')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Events')] }
 )
 
 export default EventInfo

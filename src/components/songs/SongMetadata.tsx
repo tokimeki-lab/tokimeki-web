@@ -3,7 +3,6 @@ import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { dateToYYYYMMDD } from '@/utils/datetime'
 import { unstable_cache } from 'next/cache'
 import AdminLink from '../common/AdminLink'
@@ -65,7 +64,7 @@ const listRecordEditionsBySong = unstable_cache(
       },
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default SongMetadata

@@ -1,7 +1,6 @@
 import SectionHeading from '@/components/common/SectionHeading'
 import prisma from '@/db/prisma'
 import { CacheTag } from '@/lib/cache'
-import Config from '@/lib/config'
 import { unstable_cache } from 'next/cache'
 import TrackList from './TrackList'
 
@@ -40,7 +39,7 @@ const listRecordTracksByEdition = unstable_cache(
       orderBy: [{ track: 'asc' }],
     }),
   undefined,
-  { tags: [CacheTag('Songs')], revalidate: Config.revalidate }
+  { tags: [CacheTag('Songs')] }
 )
 
 export default RecordEditionTracks
