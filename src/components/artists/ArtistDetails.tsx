@@ -5,6 +5,7 @@ import { CacheTag } from '@/lib/cache'
 import { unstable_cache } from 'next/cache'
 import ArtistMetadata from './ArtistMetadata'
 import CostumeCredits from './CostumeCredits'
+import EventCredits from './EventCredits'
 import SongCredits from './SongCredits'
 
 interface Props {
@@ -24,7 +25,7 @@ const ArtistDetails = async ({ artist }: Props) => {
       <SongCredits title={`🎵 ${t.produce}`} credits={songCredits.filter((c) => c.role === 'Produce')} />
       <SongCredits title={`💃 ${t.dance}`} credits={songCredits.filter((c) => c.role === 'Dance')} />
       <CostumeCredits title={`👗 ${t.costume}`} costumes={artist.costumes} />
-      <SongCredits title={`🏟️ ${t.event}`} credits={[]} />
+      <EventCredits artistId={artist.id} />
     </>
   )
 }

@@ -6,6 +6,7 @@ import {
   costume_images,
   costumes,
   costumes_type,
+  event_credits,
   event_places,
   event_setlist,
   events,
@@ -32,6 +33,7 @@ export type EventPlace = event_places
 export type EventType = events_type
 export type AnnualEvent = annual_events
 export type EventSetlist = event_setlist
+export type EventCredit = event_credits
 
 export type Song = songs
 export type SongCredit = song_credits
