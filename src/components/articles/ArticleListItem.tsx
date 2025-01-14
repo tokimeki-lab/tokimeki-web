@@ -25,7 +25,8 @@ const ArticleListItem = ({ article }: Props) => {
           </div>
           <div className="flex flex-col p-1 h-28 overflow-hidden">
             <div>
-              <span className={`${site?.id === 'tokisen' ? 'bg-orange' : 'bg-primary'} text-white py-[1px] px-2 rounded-full text-xs font-bold`}>
+              <span
+                className={`${site?.id === 'tokisen' ? 'bg-tokimekiorange' : 'bg-primary'} text-white py-[1px] px-2 rounded-full text-xs font-bold`}>
                 {site ? site.label : 'その他'}
               </span>
             </div>
