@@ -466,6 +466,20 @@ model youtube_videos {
   @@index([type_id], map: "type_id")
 }
 
+model costume_models {
+  id          Int                    @id @default(autoincrement())
+  costume_id  Int
+  url         String                 @db.VarChar(255)
+  credit      String                 @db.VarChar(255)
+  credit_url  String                 @db.VarChar(255)
+  description String?                @db.Text
+  status      costume_models_status? @default(draft)
+  created_at  DateTime               @default(now()) @db.DateTime(0)
+  updated_at  DateTime               @default(now()) @db.DateTime(0)
+
+  @@index([costume_id], map: "costume_id")
+}
+
 enum events_type {
   LIVE
   EVENT
@@ -537,4 +551,9 @@ enum costumes_type {
   tokisen
   chotokisen
   birthday
+}
+
+enum costume_models_status {
+  published
+  draft
 }

@@ -96,7 +96,8 @@
     "san": "さん",
     "related_tweets": "関連ツイート",
     "related_videos": "関連 YouTube 動画",
-    "researching": "調査中"
+    "researching": "調査中",
+    "3dmodel_openconfirmation": "3D モデルはデータが大きいため Wi-Fi 環境下での通信をおすすめします。このまま続行しますか？"
   },
   "events": {
     "title": "超ときめき♡イベントデータベース",

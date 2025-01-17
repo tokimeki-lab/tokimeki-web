@@ -10,7 +10,8 @@ interface Props {
 
 const CostumeDetailImagesWrapper = async ({ costume }: Props) => {
   const images = costume ? await listCostumeImages(costume.id) : []
-  return costume ? <CostumeDetailImages images={images} /> : <CostumeDetailImages />
+  const models = costume ? await listCostumeModels(costume.id) : []
+  return costume ? <CostumeDetailImages images={images} models={models} /> : <CostumeDetailImages />
 }
 
 const listCostumeImages = unstable_cache(
@@ -21,6 +22,18 @@ const listCostumeImages = unstable_cache(
       },
       orderBy: {
         display_order: 'asc',
+      },
+    }),
+  undefined,
+  { tags: [CacheTag('Costumes')] }
+)
+
+const listCostumeModels = unstable_cache(
+  async (id: number) =>
+    await prisma.costume_models.findMany({
+      where: {
+        costume_id: id,
+        status: 'published',
       },
     }),
   undefined,

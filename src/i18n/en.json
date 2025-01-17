@@ -96,7 +96,8 @@
     "san": "",
     "related_tweets": "Related Tweets",
     "related_videos": "Related YouTube Videos",
-    "researching": "Researching"
+    "researching": "Researching",
+    "3dmodel_openconfirmation": "3D model is large data, so it is recommended to communicate in Wi-Fi environment. Do you want to continue?"
   },
   "events": {
     "title": "Cho Tokimeki♡Event Database",

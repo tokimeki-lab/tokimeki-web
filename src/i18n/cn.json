@@ -96,7 +96,8 @@
     "san": "",
     "related_tweets": "相关推文",
     "related_videos": "相关视频",
-    "researching": "研究中"
+    "researching": "研究中",
+    "3dmodel_openconfirmation": "3D模型数据量较大，建议在Wi-Fi环境下通信。是否继续？"
   },
   "events": {
     "title": "超心动♡活动数据库",

@@ -96,7 +96,8 @@
     "san": "",
     "related_tweets": "관련 트윗",
     "related_videos": "관련 동영상",
-    "researching": "조사 중"
+    "researching": "조사 중",
+    "3dmodel_openconfirmation": "3D 모델은 데이터가 크기 때문에 Wi-Fi 환경에서 통신하는 것을 권장합니다. 계속 진행하시겠습니까?"
   },
   "events": {
     "title": "쵸 도키메♡ 이벤트 데이터베이스",
