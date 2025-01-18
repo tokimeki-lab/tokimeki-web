@@ -44,10 +44,7 @@ const CostumeDetailImages = ({ images, models }: Props) => {
             {models &&
               models.map((model) => (
                 <div key={model.id} className="w-20 h-20 inline-block mr-2 border rounded cursor-pointer select-none items-center justify-center">
-                  <Link
-                    href={model.url.endsWith('.glb') ? `${Urls.bolano}/models/${model.id}` : model.url}
-                    target="_blank"
-                    className="w-full h-full flex items-center justify-center">
+                  <Link href={`${Urls.bolano}/models/${model.id}`} target="_blank" className="w-full h-full flex items-center justify-center">
                     <BsBadge3D className="w-full h-full p-4" />
                   </Link>
                 </div>
