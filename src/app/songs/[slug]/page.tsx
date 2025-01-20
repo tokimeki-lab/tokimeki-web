@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import SectionHeading from '@/components/common/SectionHeading'
 import RecordEditionCollection from '@/components/records/RecordEditionCollection'
 import SongCredits from '@/components/songs/SongCredits'
@@ -26,20 +27,10 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
   } else {
     const { songs: t } = await getDictionary()
     const title = `${isDefaultLocale ? song.title : song.title_en} - ${t.title}`
-    const description = `超ときめき♡宣伝部の楽曲: ${song.title} のデータ`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const description = t.desc
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const Song = async ({ params }: Props) => {

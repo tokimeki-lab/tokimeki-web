@@ -1,3 +1,4 @@
+import getMetadata from '@/components/common/Meta'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -26,19 +27,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { youtube: t } = await getDictionary()
     const title = `${isDefaultLocale ? type.name : type.name_en} - ${t.title}`
     const description = `${type.name} - ${t.desc}`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const YouTubeTypeVideos = async ({ params }: Props) => {

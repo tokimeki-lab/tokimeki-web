@@ -1,6 +1,7 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
 import IndexNav, { jpIndexNavItems } from '@/components/common/IndexNav'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import IndexedSongCollection from '@/components/songs/IndexedSongCollection'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -10,14 +11,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { songs: t } = await getDictionary()
   const title = t.title
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const Songs = async () => {

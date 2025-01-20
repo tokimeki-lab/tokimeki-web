@@ -1,6 +1,7 @@
 import { YouTubeVideosPerPage } from '@/app/youtube/const'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import Pagenation from '@/components/common/Pagenation'
 import Title from '@/components/common/Title'
 import VideoCollection from '@/components/youtube/VideoCollection'
@@ -31,19 +32,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { youtube: t } = await getDictionary()
     const title = `${channel.title} - ${t.title}`
     const description = `${channel.title}: ${t.desc}`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const YouTubeChannelVideosPage = async ({ params }: Props) => {

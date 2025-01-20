@@ -1,6 +1,7 @@
 import Alert from '@/components/common/Alert'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import SectionHeading from '@/components/common/SectionHeading'
 import Title from '@/components/common/Title'
 import CostumeCollection from '@/components/costumes/CostumeCollection'
@@ -16,14 +17,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { costumes: t } = await getDictionary()
   const title = t.title
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const Costumes = async () => {

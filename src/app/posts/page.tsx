@@ -1,6 +1,7 @@
 import AdminLink from '@/components/common/AdminLink'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -14,18 +15,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { posts: t } = await getDictionary()
   const title = t.title
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
-}
-
-export const generateStaticParams = async () => {
-  return []
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const Posts = async () => {

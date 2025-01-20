@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import RecordEditions from '@/components/records/RecordEditions'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -22,19 +23,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { records: t } = await getDictionary()
     const title = `${record.name} - ${t.title}`
     const description = `${record.name} - ${t.desc}`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const Record = async ({ params }: Props) => {

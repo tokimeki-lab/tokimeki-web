@@ -1,3 +1,4 @@
+import getMetadata from '@/components/common/Meta'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
@@ -25,14 +26,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { youtube: t } = await getDictionary()
     const title = `${channel.title} - ${t.title}`
     const description = `${channel.title}: ${t.desc}`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
 }
 

@@ -1,3 +1,4 @@
+import getMetadata from '@/components/common/Meta'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Metadata } from 'next'
 import Articles from './[yyyymm]/page'
@@ -6,14 +7,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { articles: t } = await getDictionary()
   const title = t.title
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const ArticleBastion = () => {

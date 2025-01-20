@@ -3,6 +3,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Chip from '@/components/common/Chip'
 import Container from '@/components/common/Container'
 import { Markdown } from '@/components/common/Markdown'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -29,19 +30,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { posts: t } = await getDictionary()
     const title = `${post.title} - ${t.title}`
     const description = `${t.title}: ${post.title}`
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const Post = async ({ params }: Props) => {

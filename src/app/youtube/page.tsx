@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import SectionHeading from '@/components/common/SectionHeading'
 import Title from '@/components/common/Title'
 import ChannelCollection from '@/components/youtube/ChannelCollection'
@@ -11,14 +12,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { youtube: t } = await getDictionary()
   const title = t.title
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const Contents = async () => {

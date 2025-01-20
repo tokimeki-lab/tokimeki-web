@@ -1,6 +1,7 @@
 import AdminLink from '@/components/common/AdminLink'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import EventArticleList from '@/components/events/EventArticleList'
 import EventBlogList from '@/components/events/EventBlogList'
@@ -34,19 +35,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { events: t } = await getDictionary()
     const title = `${event.title} - ${t.title}`
     const description = t.desc
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const Event = async ({ params }: Props) => {

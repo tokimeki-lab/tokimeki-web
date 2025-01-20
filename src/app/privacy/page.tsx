@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -7,17 +8,8 @@ import Link from 'next/link'
 export const generateMetadata = async (): Promise<Metadata> => {
   const title = 'プライバシーポリシー'
   const description = undefined
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-    twitter: {
-      card: 'summary',
-    },
-  }
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 export default function Home() {

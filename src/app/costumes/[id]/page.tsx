@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import CostumeDetailImagesWrapper from '@/components/costumes/CostumeDetailImagesWrapper'
 import CostumeMetadata from '@/components/costumes/CostumeMetadata'
 import CostumeTweets from '@/components/costumes/CostumeTweets'
@@ -8,6 +9,7 @@ import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { CacheTag } from '@/lib/cache'
+import { Urls } from '@/utils/urls'
 import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
@@ -30,14 +32,11 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { costumes: t } = await getDictionary()
     const title = `${isDefaultLocale ? costume.name : costume.name_en} - ${t.title}`
     const description = t.desc
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const imageKey = costume.costume_images[0]?.image_key
+    const key = imageKey ? encodeURIComponent(`costumes/${imageKey}.xs.png`) : undefined
+    const thumbnailUrl = Urls.file(key)
+    const meta = await getMetadata(title, description, thumbnailUrl)
+    return meta
   }
 }
 
@@ -86,6 +85,15 @@ const getCostume = unstable_cache(
       include: {
         artists: true,
         events: true,
+        costume_images: {
+          where: {
+            costume_id: id,
+          },
+          orderBy: {
+            display_order: 'asc',
+          },
+          take: 1,
+        },
       },
       where: {
         id,

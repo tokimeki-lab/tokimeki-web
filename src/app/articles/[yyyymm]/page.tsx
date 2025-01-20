@@ -2,6 +2,7 @@ import ArticleList from '@/components/articles/ArticleList'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
 import DateNavigation from '@/components/common/DateNavigation'
+import getMetadata from '@/components/common/Meta'
 import Title from '@/components/common/Title'
 import prisma from '@/db/prisma'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -30,18 +31,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
   const { articles: t } = await getDictionary()
   const title = `${format(t.f_subtitle, year, month)} - ${t.title}`
   const description = t.desc
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-  }
-}
-
-export const generateStaticParams = async () => {
-  return []
+  const meta = await getMetadata(title, description)
+  return meta
 }
 
 const Articles = async ({ params }: Props) => {

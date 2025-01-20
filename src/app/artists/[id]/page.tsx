@@ -1,6 +1,7 @@
 import ArtistDetails from '@/components/artists/ArtistDetails'
 import Breadcrumbs from '@/components/common/Breadcrumbs'
 import Container from '@/components/common/Container'
+import getMetadata from '@/components/common/Meta'
 import prisma from '@/db/prisma'
 import { isDefaultLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -26,19 +27,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata | nu
     const { artists: t } = await getDictionary()
     const title = `${isDefaultLocale ? artist.name : artist.name_en} - ${t.title}`
     const description = t.desc
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-      },
-    }
+    const meta = await getMetadata(title, description)
+    return meta
   }
-}
-
-export const generateStaticParams = async () => {
-  return []
 }
 
 const Artist = async ({ params }: Props) => {
